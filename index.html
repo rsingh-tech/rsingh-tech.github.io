@@ -8,7 +8,7 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            
         }
 
         :root {
@@ -73,7 +73,7 @@
         }
 
         section {
-            min-height: 100vh;
+            min-height: 55vh;
             padding: 6rem 2rem 4rem;
             display: flex;
             align-items: center;
@@ -87,13 +87,12 @@
         }
 
         #hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-			
         }
 
         #hero .content {
             text-align: center;
+			height: 48vh;
         }
 
         #hero h1 {
@@ -131,8 +130,17 @@
 			display: block;
 			margin-left: auto;
             margin-right: auto;
-			
 		}
+		
+		.hero-content {
+            display: grid;
+			border-radius: 25px;
+            grid-template-columns: 1fr 2fr;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            gap: 3rem;
+			justify-items: center;
+			align-items: center;
+        }
 
         h2 {
             font-size: 2.5rem;
@@ -143,7 +151,7 @@
 
         .about-content {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.9fr 1fr;
             gap: 3rem;
 			justify-items: center;
         }
@@ -170,14 +178,71 @@
             font-size: 0.9rem;
             color: var(--text);
         }
+		
+		.educations-grid {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            gap: 20px;
+			justify-content: center; 
+        }
+
+        .education-card {
+            max-width: 380px;
+            flex-shrink: 0;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+		
+		#educations img {
+			width: 350px; 
+			height: 170px;
+            border-radius: 15px;			
+		}
+
+        .education-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+		
+		.projects-container {
+            max-width: 1310px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
 
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            gap: 20px;
         }
 
         .project-card {
+            max-width: 380px;
+            flex-shrink: 0;
             background: var(--bg-secondary);
             border-radius: 12px;
             overflow: hidden;
@@ -233,6 +298,47 @@
             color: white;
             border-radius: 12px;
             font-size: 0.8rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .carousel-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .carousel-btn.left {
+            left: 0;
+        }
+
+        .carousel-btn.right {
+            right: 0;
+        }
+
+        .carousel-btn svg {
+            width: 24px;
+            height: 24px;
         }
 
         .contact-content {
@@ -315,7 +421,67 @@
             section {
                 padding: 4rem 1rem 2rem;
             }
+
+            .carousel-container {
+                padding: 0 50px;
+            }
+
+            .project-card {
+                min-width: 280px;
+            }
+			
+			.education-card {
+                min-width: 280px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
         }
+		
+		/* Add media query for tablets and mobile */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 2rem;
+        padding: 2rem 1rem;
+    }
+    
+    #hero h1 {
+        font-size: 2rem; /* Smaller heading */
+    }
+    
+    #hero .subtitle {
+        font-size: 1rem; /* Smaller subtitle */
+    }
+    
+    #hero img {
+        width: 200px; /* Smaller image */
+        height: 200px;
+    }
+    
+    #hero .content {
+        height: auto; /* Remove fixed height */
+    }
+    
+    #hero .cta {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+	/* For very small phones */
+	@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    #hero img {
+        width: 150px;
+        height: 150px;
+    }
+}
     </style>
 </head>
 <body>
@@ -325,6 +491,7 @@
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
+				<li><a href="#educations">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -333,12 +500,14 @@
 
     <section id="hero">
         <div class="container">
-            <div><img src="images/Ranjit.jfif" width="200" height="200"></div>
-			<div class="content">
-                <h1>Ranjit Singh</h1>
-                <p class="subtitle">Lead Software Engineer <br/> Java • Spring Boot • Cloud • API • Python • AI • ML • FastAPI <br/> Passionate About Scalable, Intelligent & Modern Software Solutions</p>
-                <a href="#projects" class="cta">View My Work</a>
-            </div>
+            <div class="hero-content">
+			    <div class="about-image"><img src="images/Ranjit.jfif" width="300" height="300"></div>
+			    <div class="content">
+                    <h1>Ranjit Singh</h1>
+                    <p class="subtitle">Lead Software Engineer <br/> Java • Spring Boot • Cloud • API • Python • AI • ML • FastAPI <br/> Passionate About Scalable, Intelligent & Modern Software Solutions</p>
+                    <a href="#projects" class="cta">View My Work</a>
+                </div>
+			</div>
         </div>
     </section>
 
@@ -360,147 +529,183 @@
                 </div>
                 <div class="about-image">
                     <img src="images/aboutme.png" width="400" height="330" style="border-radius: 15px;">
-                        
-                    </img>
                 </div>
             </div>
         </div>
     </section>
+	
+	<section id="educations">
+        <div class="container">
+            <h2>Education</h2>
+			<div class="educations-grid" id="educationGrid">
+                    <div class="education-card">
+                        <div class="education-image"><img src="images/ucalgary.jpg" alt="Web Scrapper"></div>
+                        <div class="project-content">
+                            <h3>Master of Engineering (MEng) in Computer Engineering</h3>
+                <p>University of Calgary, Alberta, Canada</p>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Advanced software development and distributed systems.</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-image"><img src="images/ptu.jpg" alt="Markdown Converter"></div>
+                        <div class="project-content">
+                            <h3>Bachelor of Technology in Computer Science Engineering</h3>
+                <p>Punjab Technical University, Punjab, India</p>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Foundational computer science and application development.</p>
+                        </div>
+                    </div>
+			</div>		
+        </div>
+    </section>
 
     <section id="projects">
-        <div class="container">
+        <div class="projects-container">
             <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image"><img src="images/webscrapper.png"></div>
-                    <div class="project-content">
-                        <h3>Web Scrapper</h3>
-                        <p>A complete, production-ready web scraper built with Python that can extract structured data from websites including job listings, product prices, and more.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
+            <div class="carousel-container">
+                <button class="carousel-btn left" onclick="scrollCarousel('left')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+
+                <div class="projects-grid" id="projectGrid">
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/webscrapper.png"></div>
+                        <div class="project-content">
+                            <h3>Web Scrapper</h3>
+                            <p>A complete, production-ready web scraper built with Python that can extract structured data from websites including job listings, product prices, and more.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/mdconverter.png"></div>
+                        <div class="project-content">
+                            <h3>Markdown Converter</h3>
+                            <p>A Python project for converting Markdown files to HTML.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/llmcomparison.png"></div>
+                        <div class="project-content">
+                            <h3>LLM Comparator</h3>
+                            <p>A React-based web application that allows you to compare responses from multiple Large Language Models (LLMs) side-by-side in real-time.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">Java (Spring AI)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/spellcorrector.png"></div>
+                        <div class="project-content">
+                            <h3>Spell Corrector</h3>
+                            <p>A simple Python spelling correction tool using TextBlob. It can correct individual words or full sentences to their most probable correct form.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/mpcs.png"></div>
+                        <div class="project-content">
+                            <h3>Multi-PC Cloud Synchronization</h3>
+                            <p>A solution to synchronize files and settings across multiple PCs using cloud storage. Implemented real-time updates, conflict resolution, and seamless access from different devices.</p>
+                            <div class="project-tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">JSP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/oqap.png"></div>
+                        <div class="project-content">
+                            <h3>Online Quiz & Assessment Platform</h3>
+                            <p>A web-based platform for quizzes and assessments. Included features like timer-based tests, automated scoring, and performance analytics.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">Java</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/esa.png"></div>
+                        <div class="project-content">
+                            <h3>Email Sender Application</h3>
+                            <p>An automated email sending application to streamline communication. Implemented features like scheduled emails, bulk sending, and customizable templates.</p>
+                            <div class="project-tags">
+                                <span class="tag">POP3/IMAP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/ace.png"></div>
+                        <div class="project-content">
+                            <h3>Adeptia Connect Enterprise</h3>
+                            <p>An advanced, on-premise integration platform designed for large-scale businesses that require robust, secure, and customizable data integration solutions.</p>
+                            <div class="project-tags">
+                                <span class="tag">ExtJs</span>
+                                <span class="tag">Java</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/ac.png"></div>
+                        <div class="project-content">
+                            <h3>Adeptia Connect (Cloud)</h3>
+                            <p>A modern, cloud-based integration platform designed to simplify and accelerate business-to-business (B2B) and application-to-application (A2A) integrations.</p>
+                            <div class="project-tags">
+                                <span class="tag">ExtJs</span>
+                                <span class="tag">Java</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/ais.png"></div>
+                        <div class="project-content">
+                            <h3>Adeptia Integration Suite (AIS)</h3>
+                            <p>A comprehensive middleware platform designed to enable seamless integration, automation, and management of data flows between diverse systems.</p>
+                            <div class="project-tags">
+                                <span class="tag">ExtJs</span>
+                                <span class="tag">Java</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/intakeassist.png"></div>
+                        <div class="project-content">
+                            <h3>Intake Assist</h3>
+                            <p>A healthcare solution designed to streamline the collection, processing, and management of patient data during the intake process.</p>
+                            <div class="project-tags">
+                                <span class="tag">ExtJs</span>
+                                <span class="tag">Java</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><img src="images/wotc.png"></div>
+                        <div class="project-content">
+                            <h3>Work Opportunity Tax Credit</h3>
+                            <p>Helping employers claim tax credits when hiring individuals from certain target groups who face significant barriers to employment.</p>
+                            <div class="project-tags">
+                                <span class="tag">JSP/Servlets</span>
+                                <span class="tag">Java</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/mdconverter.png"></div>
-                    <div class="project-content">
-                        <h3>Markdown Converter</h3>
-                        <p>A Python project for converting Markdown files to HTML.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/llmcomparison.png"></div>
-                    <div class="project-content">
-                        <h3>LLM Comparator</h3>
-                        <p>A React-based web application that allows you to compare responses from multiple Large Language Models (LLMs) side-by-side in real-time.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Java (Spring AI)</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/spellcorrector.png"></div>
-                    <div class="project-content">
-                        <h3>Spell Corrector</h3>
-                        <p>A simple Python spelling correction tool using TextBlob. It can correct individual words or full sentences to their most probable correct form.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/mpcs.png"></div>
-                    <div class="project-content">
-                        <h3>Multi-PC Cloud Synchronization</h3>
-                        <p>A solution to synchronize files and settings across multiple PCs using cloud storage. Implemented real-time updates, conflict resolution, and seamless access from different devices. Gained hands-on experience in cloud integration, data consistency management, and cross-device application development.</p>
-                        <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">JSP</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/oqap.png"></div>
-                    <div class="project-content">
-                        <h3>Online Quiz & Assessment Platform</h3>
-                        <p>A web-based platform for quizzes and assessments. Included features like timer-based tests, automated scoring, and performance analytics to help students and teachers track learning progress.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/esa.png"></div>
-                    <div class="project-content">
-                        <h3>Email Sender Application</h3>
-                        <p>An automated email sending application to streamline communication. Implemented features like scheduled emails, bulk sending, and customizable templates. Gained hands-on experience in email protocols, automation, and improving user productivity through software solutions.</p>
-                        <div class="project-tags">
-                            <span class="tag">POP3/IMAP</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/ace.png"></div>
-                    <div class="project-content">
-                        <h3>Adeptia Connect Enterprise</h3>
-                        <p>Adeptia Connect Enterprise is an advanced, on-premise integration platform designed for large-scale businesses that require robust, secure, and customizable data integration solutions. It focuses on enabling enterprises to manage complex integrations across internal systems, trading partners, and cloud applications while maintaining full control over their data and processes.</p>
-                        <div class="project-tags">
-                            <span class="tag">ExtJs</span>
-                            <span class="tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"><img src="images/ac.png"></div>
-                    <div class="project-content">
-                        <h3>Adeptia Connect (Cloud)</h3>
-                        <p>The Adeptia Connect (Cloud) project is a modern, cloud-based integration platform designed to simplify and accelerate business-to-business (B2B) and application-to-application (A2A) integrations. Adeptia Connect enables organizations to seamlessly exchange data with partners, customers, and internal systems while leveraging a user-friendly, self-service model that empowers non-technical users to set up and manage integrations.</p>
-                        <div class="project-tags">
-                            <span class="tag">ExtJs</span>
-                            <span class="tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"><img src="images/ais.png"></div>
-                    <div class="project-content">
-                        <h3>Adeptia Integration Suite (AIS)</h3>
-                        <p>The Adeptia Integration Suite (AIS) is a comprehensive middleware platform designed to enable seamless integration, automation, and management of data flows between diverse systems, applications, and trading partners. AIS empowers organizations to streamline business processes, enhance data accuracy, and ensure efficient collaboration across the enterprise.</p>
-                        <div class="project-tags">
-                            <span class="tag">ExtJs</span>
-                            <span class="tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/intakeassist.png"></div>
-                    <div class="project-content">
-                        <h3>Intake Assist</h3>
-                        <p>The Intake Assist project is a healthcare solution designed to streamline the collection, processing, and management of patient data during the intake process. The project focuses on improving efficiency, accuracy, and patient experience while ensuring compliance with healthcare regulations.</p>
-                        <div class="project-tags">
-                            <span class="tag">ExtJs</span>
-                            <span class="tag">Java</span>
-                        </div>
-                    </div>
-                </div>
-				<div class="project-card">
-                    <div class="project-image"><img src="images/wotc.png"></div>
-                    <div class="project-content">
-                        <h3>Work Opportunity Tax Credit</h3>
-                        <p>The project is centered on helping employers claim tax credits when hiring individuals from certain target groups who face significant barriers to employment. This program is a federal tax credit designed to encourage diversity in the workforce and support disadvantaged communities.</p>
-                        <div class="project-tags">
-                            <span class="tag">JSP/Servlets</span>
-                            <span class="tag">Java</span>
-                        </div>
-                    </div>
-                </div>
+
+                <button class="carousel-btn right" onclick="scrollCarousel('right')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -509,7 +714,7 @@
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-content">
-                <p>I'm always interested in hearing about new projects and opportunities. Whether it’s a potential partnership, a job opportunity, or a simple "hello," I’d love to hear from you.</p>
+                <p>I'm always interested in hearing about new projects and opportunities. Whether it's a potential partnership, a job opportunity, or a simple "hello," I'd love to hear from you.</p>
                 <div class="contact-links">
                     <a href="mailto:ranjit92singh@gmail.com" class="contact-link">
                         📧 Email Me
@@ -530,6 +735,7 @@
     </footer>
 
     <script>
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -541,6 +747,27 @@
                     });
                 }
             });
+        });
+
+        // Carousel scroll function
+        function scrollCarousel(direction) {
+            const grid = document.getElementById('projectGrid');
+            const scrollAmount = 400; // card width (380) + gap (20)
+            
+            if (direction === 'left') {
+                grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // Keyboard navigation for carousel
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                scrollCarousel('left');
+            } else if (e.key === 'ArrowRight') {
+                scrollCarousel('right');
+            }
         });
     </script>
 </body>
