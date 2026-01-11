@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Ranjit Singh - Portfolio</title>
+      <title>Ranjit Singh</title>
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
       <style>
 		/* ===================================
@@ -54,7 +54,7 @@
 
 		.container {
 		   max-width: 1200px;
-		   width: 100%;
+		   width: auto;
 		   margin: 0 auto;
 		   padding: 10px;
 		}
@@ -81,7 +81,7 @@
 		   position: fixed;
 		   top: 0;
 		   width: 100%;
-		   background: rgba(255, 255, 255, 0.95);
+		   background: rgba(245, 245, 245, 0.95);
 		   backdrop-filter: blur(10px);
 		   border-bottom: 1px solid var(--border);
 		   z-index: 1000;
@@ -478,7 +478,6 @@
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
@@ -817,6 +816,319 @@
 		   font-size: 3rem;
 		   color: white;
 		}
+		
+		/* ===================================
+		   Employment Section
+		=================================== */
+		.employment-section {
+            max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			
+        }
+
+        .employment-section * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .employment-section .emp-container {
+            max-width: 1200px;
+            margin: 0 auto;
+			padding: 0px 30px;
+        }
+
+        .employment-section .emp-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .employment-section .emp-header h2 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .employment-section .emp-header p {
+            color: #5a5a6e;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .employment-section .emp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .employment-section .emp-company-card {
+            background: #f7fafc;
+            border-radius: 24px;
+            padding: 45px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .employment-section .emp-company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .employment-section .emp-company-card:hover {
+            transform: translateY(-8px);
+            
+        }
+
+        .employment-section .emp-company-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .employment-section .emp-company-main {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .employment-section .emp-company-logo {
+            width: 90px;
+            height: 90px;
+            min-width: 90px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            flex-shrink: 0;
+        }
+
+        .employment-section .emp-company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        .employment-section .emp-company-info {
+            flex: 1;
+        }
+
+        .employment-section .emp-company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .employment-section .emp-company-name {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .employment-section .emp-current-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .employment-section .emp-total-duration {
+            color: #5a5a6e;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 8px 18px;
+            background: #f0f4ff;
+            border-radius: 25px;
+        }
+
+        .employment-section .emp-roles-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-top: 25px;
+        }
+
+        .employment-section .emp-role-item {
+            position: relative;
+            padding-left: 35px;
+            
+            border-left: 3px solid #e0e7ff;
+        }
+
+        .employment-section .emp-role-item:last-child {
+            /* border-left-color: transparent; */
+            padding-bottom: 0;
+        }
+
+        .employment-section .emp-role-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #f0f4ff;
+        }
+
+        .employment-section .emp-role-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .employment-section .emp-role-title {
+            font-size: 1.4rem;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .employment-section .emp-role-duration {
+            color: #764ba2;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: #faf5ff;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .employment-section .emp-role-description {
+            color: #4a4a5e;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-size: 1rem;
+			text-align: justify;
+        }
+
+        .employment-section .emp-achievements {
+            margin-bottom: 18px;
+        }
+
+        .employment-section .emp-achievements h4 {
+            color: #1a1a2e;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .employment-section .emp-achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .employment-section .emp-achievements li {
+            color: #5a5a6e;
+            padding-left: 22px;
+            margin-bottom: 8px;
+            position: relative;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .employment-section .emp-achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .employment-section .emp-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .employment-section .emp-tech-badge {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            color: #667eea;
+            padding: 7px 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #667eea30;
+            transition: all 0.3s ease;
+        }
+
+        .employment-section .emp-tech-badge:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .employment-section {
+                padding: 60px 20px;
+            }
+
+            .employment-section .emp-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .employment-section .emp-company-main {
+                flex-direction: column;
+            }
+
+            .employment-section .emp-company-logo {
+                width: 70px;
+                height: 70px;
+                min-width: 70px;
+                font-size: 1.5rem;
+            }
+
+            .employment-section .emp-company-card {
+                padding: 30px 25px;
+            }
+
+            .employment-section .emp-company-name {
+                font-size: 1.5rem;
+            }
+
+            .employment-section .emp-role-title {
+                font-size: 1.2rem;
+            }
+
+            .employment-section .emp-role-item {
+                padding-left: 25px;
+            }
+        }
 
 		/* ===================================
 		   PROJECTS SECTION
@@ -1364,7 +1676,7 @@
                     <h1 class="hero-title">Ranjit Singh</h1>
                     <div class="hero-role">Lead Software Engineer</div>
                     <p class="hero-subtitle">
-                        Passionate about building scalable, intelligent, and modern software solutions.
+                        Passionate about building scalable, intelligent, and modern software solutions.</br>
                         Specializing in cloud-native applications, microservices architecture, and AI/ML integration.
                     </p>
                     <div class="hero-cta-group">
@@ -1626,7 +1938,6 @@
                     <div class="skills-tag">Data Transformation</div>
                     <div class="skills-tag">B2B Integration</div>
                     <div class="skills-tag">ETL/ELT</div>
-                    <div class="skills-tag">XPath</div>
                 </div>
             </div>
         </div>
@@ -1738,6 +2049,138 @@
             </div>
          </div>
       </section>
+	  <section class="employment-section" id="employment">
+        <div class="emp-container">
+            <div class="emp-header">
+                <h2>Work Experience</h2>
+                <p>My professional journey across innovative companies</p>
+            </div>
+
+            <div class="emp-list">
+                <div class="emp-company-card">
+                    <div class="emp-company-main">
+                        <div class="emp-company-logo">
+                            <img src="images/fedex.png" alt="FedEx Corp"/>
+                        </div>
+                        <div class="emp-company-info">
+                            <div class="emp-company-header">
+                                <h3 class="emp-company-name">FedEx Corp. <span class="emp-current-badge">Current</span></h3>
+                                <div class="emp-total-duration">Sep 2025 - Present</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="emp-roles-timeline">
+                        <div class="emp-role-item">
+                            <div class="emp-role-header">
+                                <div class="emp-role-title">Operations Associate</div>
+                                
+                            </div>
+                            <p class="emp-role-description">
+                                Monitoring workflows, streamlining procedures, and ensuring departmental coordination.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+				<div class="emp-company-card">
+                    <div class="emp-company-main">
+                        <div class="emp-company-logo">
+                           <img src="images/kumaran.jpg" alt="Kumaran Systems"/>
+                        </div>
+                        <div class="emp-company-info">
+                            <div class="emp-company-header">
+                                <h3 class="emp-company-name">Kumaran Systems</h3>
+                                <div class="emp-total-duration">Dec 2024 - Aug 2025</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="emp-roles-timeline">
+                        <div class="emp-role-item">
+                            <div class="emp-role-header">
+                                <div class="emp-role-title">Technical Lead</div>
+                                
+                            </div>
+                            <p class="emp-role-description">
+                                Owned and led end-to-end backend system design, driving scalable, secure, and high-performance solutions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="emp-company-card">
+                    <div class="emp-company-main">
+                        <div class="emp-company-logo">
+                            
+                            <img src="images/adeptia.jpg" alt="Adeptia Inc"/>
+                        </div>
+                        <div class="emp-company-info">
+                            <div class="emp-company-header">
+                                <h3 class="emp-company-name">
+                                    Adeptia Inc.
+                                </h3>
+                                <div class="emp-total-duration">Jul 2013 - Sep 2024</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="emp-roles-timeline">
+                        <div class="emp-role-item">
+                            <div class="emp-role-header">
+                                <div class="emp-role-title">Senior Tech Lead</div>
+                                
+                            </div>
+                            <p class="emp-role-description">
+                                Delivered an enterprise integration platform for Fortune 500 clients, enabling 40% faster deployments, high-performance microservices, no-code integrations, SOC 2 security, and ML automation.
+                            </p>
+                            
+                        </div>
+
+                        <!-- Role 2 -->
+                        <div class="emp-role-item">
+                            <div class="emp-role-header">
+                                <div class="emp-role-title">Tech Lead</div>
+                                
+                            </div>
+                            <p class="emp-role-description">
+                                Led a cloud-native integration platform for 500+ clients with 99.9% uptime, 50+ SaaS integrations, ML-based anomaly detection, and 3× scalable performance.
+                            </p>
+                        </div>
+						<div class="emp-role-item">
+                            <div class="emp-role-header">
+                                <div class="emp-role-title">Senior Software Engineer</div>
+                                
+                            </div>
+                            <p class="emp-role-description">
+                                Enhanced core enterprise frameworks for 1,000+ customers, improving performance 30%, cutting defects 40%, ensuring HIPAA/PCI-DSS compliance, and accelerating issue resolution 60% across 200+ deployments.
+                            </p>
+                            
+                        </div>
+						<div class="emp-role-item">
+                            <div class="emp-role-header">
+                                <div class="emp-role-title">Software Engineer</div>
+                                
+                            </div>
+                            <p class="emp-role-description">
+                                Delivered secure healthcare and tax solutions processing 60,000+ records annually, boosting efficiency, enabling $2M+ in claims, and ensuring 99.5%+ uptime.
+                            </p>
+                            
+                        </div>
+						<div class="emp-role-item">
+                            <div class="emp-role-header">
+                                <div class="emp-role-title">Software Trainee</div>
+                                
+                            </div>
+                            <p class="emp-role-description">
+                                Contributed to enterprise application design, development, and testing, collaborating on debugging, code reviews, performance optimization, and agile deployments.
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
       <section id="projects">
          <div class="projects-container">
             <h2>Projects</h2>
@@ -2059,7 +2502,7 @@
          </div>
       </section>
       <footer>
-         <p>&copy; 2025 Ranjit Singh. All rights reserved.</p>
+         <p>&copy; 2026 Ranjit Singh. All rights reserved.</p>
       </footer>
       <script>
          // Smooth scroll for navigation links
