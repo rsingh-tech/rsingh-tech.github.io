@@ -777,17 +777,16 @@
 		/* ===================================
 		   EDUCATION SECTION
 		=================================== */
+		
+		
 		.educations-grid {
-		   display: flex;
-		   overflow-x: hidden;
-		   scroll-behavior: smooth;
-		   gap: 20px;
-		   justify-content: center;
+		   display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 0 auto;
 		}
 
 		.education-card {
-		   max-width: 380px;
-		   flex-shrink: 0;
 		   background: var(--bg-secondary);
 		   border-radius: 12px;
 		   overflow: hidden;
@@ -822,10 +821,10 @@
 		=================================== */
 		.employment-section {
             max-width: 1200px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+			margin: 0 auto;
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 20px;
+			box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 			
         }
 
@@ -1583,14 +1582,10 @@
 			  height: 40px;
 		   }
 
-		   /* Education */
-		   .education-card {
-			  min-width: 280px;
-		   }
+		   
 
 		   .educations-grid {
-			  flex-direction: column;
-			  align-items: center;
+			  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		   }
 
 		   .contact-main-content {
@@ -2007,7 +2002,7 @@
         
       </div>
 	  </section>
-      <section id="educations">
+      <section id="educations" class="education-section">
          <div class="container">
             <h2>Education</h2>
             <div class="educations-grid" id="educationGrid">
@@ -2043,6 +2038,23 @@
                      <p style="font-size: 0.9rem; color: var(--text-light)">
                         Foundational computer science and application
                         development.
+                     </p>
+                  </div>
+               </div>
+			   <div class="education-card">
+                  <div class="education-image">
+                     <img
+                        src="images/vmmedu.webp"
+                        alt="Punjab Technical University"
+                     />
+                  </div>
+                  <div class="project-content">
+                     <h3>
+                        Professional Training / Certification
+                     </h3>
+                     <p>VMM Education, Punjab, India</p>
+                     <p style="font-size: 0.9rem; color: var(--text-light)">
+                        Certificate course in Java & Spring framework
                      </p>
                   </div>
                </div>
@@ -2447,21 +2459,21 @@
                         href="mailto:ranjit92singh@gmail.com"
                         class="contact-link"
                      >
-                        📧 Email Me
+                        <i class="fa-solid fa-envelope"></i> Email Me
                      </a>
                      <a
                         href="https://github.com/orgs/ranjit-engineering-lab/repositories"
                         class="contact-link"
                         target="_blank"
                      >
-                        🔗 GitHub
+                        <i class="fa-brands fa-github"></i> GitHub
                      </a>
                      <a
                         href="https://www.linkedin.com/in/ranjit-singh-tech/"
                         class="contact-link"
                         target="_blank"
                      >
-                        💼 LinkedIn
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
                      </a>
                   </div>
                </div>
