@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+
+    <!-- ══════════════════════════════════════════
+         NAVIGATION
+    ══════════════════════════════════════════ -->
+    <nav>
+      <div class="container">
+        <!-- Logo injected by JS -->
+        <div class="logo"></div>
+
+        
+		<div class="header-menu">
+        <!-- Hamburger (mobile) -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+		
+		
+        <!-- Nav links -->
+        <ul id="navMenu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#employment">Employment</a></li>
+          <li><a href="#educations">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+		<!-- Theme toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+		</div>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════
+         HERO  – content injected by JS
+    ══════════════════════════════════════════ -->
+    <section id="hero"></section>
+
+    <!-- ══════════════════════════════════════════
+         ABOUT  – content injected by JS
+    ══════════════════════════════════════════ -->
+    <section id="about">
+      <div class="container"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SKILLS  – content injected by JS
+    ══════════════════════════════════════════ -->
+    <section id="skills" class="skills-section">
+      <div class="container"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         EDUCATION  – content injected by JS
+    ══════════════════════════════════════════ -->
+    <section id="educations" class="education-section">
+      <div class="container">
+        <h2>Education</h2>
+        <div class="educations-grid" id="educationGrid">
+          <!-- cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         EMPLOYMENT  – content injected by JS
+    ══════════════════════════════════════════ -->
+    <section class="employment-section" id="employment">
+      <div class="emp-container">
+        <div class="emp-header">
+          <h2>Work Experience</h2>
+          <p><!-- subtitle injected by JS --></p>
+        </div>
+        <div class="emp-list">
+          <!-- company cards injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         PROJECTS  – content injected by JS
+    ══════════════════════════════════════════ -->
+    <section id="projects">
+      <div class="projects-container">
+        <h2>Projects</h2>
+        <div class="carousel-container">
+
+          <!-- Left arrow -->
+          <button class="carousel-btn left" onclick="scrollCarousel('left')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <!-- Project cards injected by JS -->
+          <div class="projects-grid" id="projectGrid"></div>
+
+          <!-- Right arrow -->
+          <button class="carousel-btn right" onclick="scrollCarousel('right')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CONTACT
+    ══════════════════════════════════════════ -->
+    <section id="contact">
+      <div class="container">
+        <h2>Get In Touch</h2>
+        <div class="contact-main-content">
+
+          <!-- Left: intro + links (injected by JS) -->
+          <div class="contact-content">
+            <p><!-- intro injected by JS --></p>
+            <div class="contact-links">
+              <!-- links injected by JS -->
+            </div>
+          </div>
+
+          <!-- Right: contact form -->
+          <div class="contact-section">
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+              <!-- key injected by JS -->
+              <input type="hidden" name="access_key" value="" />
+              <div id="formMessage" class="form-message"></div>
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════ -->
+    <footer>
+      <p class="footer-text"></p>
+    </footer>
+
+    <!-- ══════════════════════════════════════════
+         SCRIPTS  (data first, then app logic)
+    ══════════════════════════════════════════ -->
+    <script src="js/data.js"></script>
+    <script src="js/portfolio.js"></script>
+
+  </body>
+</html>
