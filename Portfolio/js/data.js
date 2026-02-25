@@ -364,7 +364,7 @@ const PORTFOLIO_DATA = {
         label: "Email Me"
       },
       {
-        href: "https://github.com/orgs/ranjit-engineering-lab/repositories",
+        href: "https://github.com/ranjit-engineering-lab",
         icon: "fa-brands fa-github",
         label: "GitHub",
         target: "_blank"
