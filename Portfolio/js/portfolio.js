@@ -378,6 +378,40 @@
     });
   }
 
+  const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1476345332379160698/8IFs_9ZG0vmy6TjDjrsBp6OccU97-XtndeyO9NjBVyiLC4o2-a8oZUVOTFBd2griBJPJ";
+
+  async function sendDiscordNotification() {
+    // Check if we've already sent a ping this session (prevents spam on refresh)
+    if (sessionStorage.getItem('notified')) return;
+
+    const payload = {
+      username: "Portfolio Tracker",
+      embeds: [{
+        title: "New Portfolio Visit!",
+        color: 3447003, // A nice blue color
+        fields: [
+          { name: "Page Title", value: document.title, inline: true },
+          { name: "URL", value: window.location.href, inline: true },
+          { name: "Device/Browser", value: navigator.userAgent.split(') ')[0] + ')', inline: false },
+          { name: "Timestamp", value: new Date().toLocaleString(), inline: false }
+        ],
+        footer: { text: "Portfolio Analytics Bot" }
+      }]
+    };
+
+    try {
+      await fetch(DISCORD_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      // Mark as notified for this session
+      sessionStorage.setItem('notified', 'true');
+    } catch (err) {
+      console.error("Webhook failed:", err);
+    }
+  }
+
   // ── Boot ──────────────────────────────────────────────────────────────────
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -393,6 +427,7 @@
     renderContact();
     initNavInteractions();
     initContactForm();
+    sendDiscordNotification();
   });
 
 })();
