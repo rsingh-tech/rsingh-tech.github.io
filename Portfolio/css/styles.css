@@ -1230,13 +1230,13 @@ nav a:hover {
    position: relative;
    padding-bottom: 1rem;
 }
-.emp-tl-item:not(.emp-tl-last)::before {
+.emp-tl-item::before {
    content: '';
    position: absolute;
-   left: 6px;
+   left: 4px;
    top: 14px;
    bottom: 0;
-   width: 2px;
+   width: 4px;
    background: linear-gradient(to bottom, var(--dot-color, #667eea) 0%, transparent 100%);
    opacity: 0.35;
 }
