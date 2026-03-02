@@ -34,6 +34,12 @@ const PORTFOLIO_DATA = {
       { label: "View My Work", href: "#projects", icon: "fa fa-arrow-right", style: "primary" },
       { label: "View Resume",  href: "assets/Resume_Ranjit.pdf", icon: "fa fa-file", style: "secondary", target: "_blank" }
     ],
+    // Social links shown in the hero (icon buttons)
+    socialLinks: [
+      { href: "https://github.com/ranjit-engineering-lab", icon: "fa-brands fa-github", label: "GitHub", target: "_blank" },
+      { href: "https://www.linkedin.com/in/ranjit-singh-tech/", icon: "fa-brands fa-linkedin", label: "LinkedIn", target: "_blank" },
+      { href: "mailto:ranjit92singh@gmail.com", icon: "fa-solid fa-envelope", label: "Email" }
+    ],
     // Quick skill badges shown in the hero
     skillBadges: [
       "Java & Spring Boot",
@@ -51,6 +57,90 @@ const PORTFOLIO_DATA = {
       "I am results-oriented Full Stack Software Engineer with 12+ years of experience building end-to-end cloud-native applications, from responsive frontends to scalable microservices backends, RESTful APIs, and distributed systems.",
       "Expert in Java, Spring Boot, Python, modern web frameworks, and DevOps practices, with deep proficiency in AWS, Azure, and CI/CD automation. Hands-on experience in AI/ML integration to deliver intelligent, secure, and high-performance software solutions."
     ]
+  },
+
+  // ── ABOUT PAGE ───────────────────────────────────────────
+  aboutPage: {
+    story: {
+      label: "My Story",
+      labelIcon: "fa-solid fa-user",
+      title: "Who I Am",
+      paragraphs: [
+        "I'm <strong>Ranjit Singh</strong>, a Lead Software Engineer with over <strong>12 years of hands-on experience</strong> building enterprise-grade software from the ground up. My journey began in 2013 when I joined Adeptia Inc. as a Software Trainee, and over 11 years I grew into a Senior Tech Lead — architecting systems that now serve Fortune 500 companies across the globe.",
+        "My passion lies at the intersection of <strong>cloud-native architecture, AI/ML integration, and developer experience</strong>. I love crafting solutions that are not just functional, but elegant — systems that scale effortlessly, fail gracefully, and empower the teams that maintain them.",
+        "Beyond the code, I'm a lifelong learner. I am pursuing <strong>Master of Engineering in Software Engineering at the University of Calgary</strong>, deepening my expertise in distributed systems, machine learning, and modern software methodologies."
+      ]
+    },
+
+    impact: {
+      label: "By the Numbers",
+      labelIcon: "fa-solid fa-chart-line",
+      title: "Impact at a Glance",
+      stats: [
+        { icon: "fa-solid fa-calendar",      number: "12+",   label: "Years of Experience" },
+        { icon: "fa-solid fa-building",      number: "200+",  label: "Enterprise Clients Served" },
+        { icon: "fa-solid fa-rocket",        number: "40%",   label: "Faster Deployments Delivered" },
+        { icon: "fa-solid fa-shield-halved", number: "99.9%", label: "Platform Uptime Achieved" },
+        { icon: "fa-solid fa-code-branch",   number: "50+",   label: "SaaS Integrations Built" },
+        { icon: "fa-solid fa-users",         number: "200+",  label: "Deployments Managed" }
+      ]
+    },
+
+    values: {
+      label: "Core Values",
+      labelIcon: "fa-solid fa-heart",
+      title: "What Drives Me",
+      items: [
+        { icon: "fa-solid fa-lightbulb",  title: "Engineering Excellence",       text: "I care deeply about code quality, clean architecture, and systems that stand the test of time. Technical debt is a choice and I prefer to invest in the right foundations." },
+        { icon: "fa-solid fa-users",      title: "People First",                 text: "The best technology is built by empowered teams. I invest in mentoring junior engineers, fostering psychological safety, and creating environments where great ideas can flourish." },
+        { icon: "fa-solid fa-brain",      title: "Continuous Learning",          text: "Technology evolves rapidly and so do I. From completing my MEng at UofC to earning AI certifications, I'm committed to staying at the frontier of what's possible." },
+        { icon: "fa-solid fa-handshake",  title: "Impactful Collaboration",      text: "I bridge the gap between engineering, product, and business. Clear communication and shared context lead to outcomes that everyone is proud of." },
+        { icon: "fa-solid fa-lock",       title: "Security & Reliability by Design", text: "Security isn't an afterthought — it's baked in from day one. I design systems that are HIPAA, PCI-DSS, and SOC 2 compliant without sacrificing developer experience." }
+      ]
+    },
+
+    beyond: {
+      label: "Beyond Code",
+      labelIcon: "fa-solid fa-compass",
+      title: "Life Outside the Terminal",
+      paragraphs: [
+        "When I'm not architecting distributed systems, you'll find me exploring the beautiful Rocky Mountains near Calgary, diving into the latest AI research papers, or experimenting with side projects that push the boundaries of what's possible with modern tooling.",
+        "I'm deeply interested in the intersection of <strong>artificial intelligence and real-world problem solving</strong> particularly in healthcare, logistics, and developer productivity."
+      ],
+      interests: [
+        { icon: "fa-solid fa-mountain",  label: "Hiking & Nature" },
+        { icon: "fa-solid fa-robot",     label: "AI Research" },
+        { icon: "fa-solid fa-code",      label: "Open Source" },
+        { icon: "fa-solid fa-book",      label: "Technical Reading" },
+        { icon: "fa-solid fa-chess",     label: "Strategic Games" },
+        { icon: "fa-solid fa-camera",    label: "Photography" },
+        { icon: "fa-solid fa-plane",     label: "Travel" },
+        { icon: "fa-solid fa-mug-hot",   label: "Coffee Connoisseur" }
+      ]
+    },
+
+    current: {
+      label: "Right Now",
+      labelIcon: "fa-solid fa-bolt",
+      title: "What I'm Up To",
+      items: [
+        { icon: "fa-solid fa-briefcase",        title: "Operations Coordinator @ FedEx Corp.",  text: "Monitoring workflows, streamlining operational procedures, and ensuring seamless departmental coordination at one of the world's largest logistics companies." },
+        { icon: "fa-solid fa-graduation-cap",   title: "MEng Graduate",          text: "Just pursuing my Master of Engineering in Software Engineering at the University of Calgary (2025–2027), specializing in distributed systems and AI/ML." },
+        { icon: "fa-solid fa-flask",            title: "Building Side Projects",                text: "Actively developing an LLM Comparator, web scrapers, and cloud synchronization tools - always tinkering at the edge of what modern tech can do." },
+        { icon: "fa-solid fa-magnifying-glass", title: "Open to Senior Engineering Roles",      text: "Actively exploring senior/lead software engineering opportunities in Canada - particularly in cloud-native, AI/ML, or platform engineering domains." }
+      ]
+    },
+
+    cta: {
+      title: "Let's Build Something Great",
+      subtitle: "I'm always open to interesting conversations, collaborations, and opportunities.",
+      links: [
+        { href: "mailto:ranjit92singh@gmail.com",              icon: "fa-solid fa-envelope",    label: "Email Me" },
+        { href: "https://www.linkedin.com/in/ranjit-singh-tech/",  icon: "fa-brands fa-linkedin",   label: "LinkedIn",  target: "_blank" },
+        { href: "https://github.com/ranjit-engineering-lab",        icon: "fa-brands fa-github",     label: "GitHub",    target: "_blank" },
+        { href: "assets/Resume_Ranjit.pdf",                         icon: "fa-solid fa-file",        label: "Resume",    target: "_blank" }
+      ]
+    }
   },
 
   // ── SKILLS ───────────────────────────────────────────────
@@ -194,18 +284,38 @@ const PORTFOLIO_DATA = {
   // ── EMPLOYMENT ───────────────────────────────────────────
   employment: {
     sectionSubtitle: "My professional journey across innovative companies",
+
+    
+    timeline: {
+      ticks: [
+        { label: "2013", left: 0  },
+        { label: "2014", left: 10  },
+        { label: ".  .  .  .  .  .",  left: 25 },
+        { label: "2023", left: 38 },
+        { label: "2024", left: 55 },
+        { label: "2025", left: 84 },
+        { label: "2026", left: 92 },
+		{ label: "Present", left: 98 }
+      ]
+    },
+
+    // List oldest → newest  (left → right on desktop bar)
     companies: [
       {
-        name: "FedEx Corp.",
-        logo: "images/fedex.png",
-        logoAlt: "FedEx Corp",
-        duration: "Sep 2025 - Present",
-        isCurrent: true,
+        name: "Adeptia Inc.",
+        logo: "images/adeptia.jpg",
+        logoAlt: "Adeptia Inc",
+        duration: "Jul 2013 - Sep 2024",
+        isCurrent: false,
+        barLeft:  0,
+        barWidth: 52,
+        colFlex:  52,
         roles: [
-          {
-            title: "Operations Coordinator",
-            description: "Monitoring workflows, streamlining procedures, and ensuring departmental coordination."
-          }
+          { title: "Sr. Tech Lead",          description: "Delivered an enterprise integration platform for Fortune 500 clients, enabling 40% faster deployments, high-performance microservices, no-code integrations, SOC 2 security, and ML automation." },
+          { title: "Tech Lead",              description: "Led a cloud-native integration platform for 500+ clients with 99.9% uptime, 50+ SaaS integrations, ML-based anomaly detection, and 3x scalable performance." },
+          { title: "Senior Software Engineer",description: "Enhanced core enterprise frameworks for 1,000+ customers, improving performance 30%, cutting defects 40%, ensuring HIPAA/PCI-DSS compliance, and accelerating issue resolution 60% across 200+ deployments." },
+          { title: "Software Engineer",      description: "Delivered secure healthcare and tax solutions processing 60,000+ records annually, boosting efficiency, enabling $2M+ in claims, and ensuring 99.5%+ uptime." },
+          { title: "Software Trainee",       description: "Contributed to enterprise application design, development, and testing, collaborating on debugging, code reviews, performance optimization, and agile deployments." }
         ]
       },
       {
@@ -214,69 +324,104 @@ const PORTFOLIO_DATA = {
         logoAlt: "Kumaran Systems",
         duration: "Dec 2024 - Aug 2025",
         isCurrent: false,
+        barLeft:  52,
+        barWidth: 25,
+        colFlex:  25,
         roles: [
-          {
-            title: "Sr. Tech Lead",
-            description: "Owned and led end-to-end backend system design, driving scalable, secure, and high-performance solutions."
-          }
+          { title: "Sr. Tech Lead", description: "Owned and led end-to-end backend system design, driving scalable, secure, and high-performance solutions." }
         ]
       },
       {
-        name: "Adeptia Inc.",
-        logo: "images/adeptia.jpg",
-        logoAlt: "Adeptia Inc",
-        duration: "Jul 2013 - Sep 2024",
-        isCurrent: false,
+        name: "FedEx Corp.",
+        logo: "images/fedex.png",
+        logoAlt: "FedEx Corp",
+        duration: "Sep 2025 - Present",
+        isCurrent: true,
+        barLeft:  77,
+        barWidth: 23,
+        colFlex:  23,
         roles: [
-          {
-            title: "Sr. Tech Lead",
-            description: "Delivered an enterprise integration platform for Fortune 500 clients, enabling 40% faster deployments, high-performance microservices, no-code integrations, SOC 2 security, and ML automation."
-          },
-          {
-            title: "Tech Lead",
-            description: "Led a cloud-native integration platform for 500+ clients with 99.9% uptime, 50+ SaaS integrations, ML-based anomaly detection, and 3× scalable performance."
-          },
-          {
-            title: "Senior Software Engineer",
-            description: "Enhanced core enterprise frameworks for 1,000+ customers, improving performance 30%, cutting defects 40%, ensuring HIPAA/PCI-DSS compliance, and accelerating issue resolution 60% across 200+ deployments."
-          },
-          {
-            title: "Software Engineer",
-            description: "Delivered secure healthcare and tax solutions processing 60,000+ records annually, boosting efficiency, enabling $2M+ in claims, and ensuring 99.5%+ uptime."
-          },
-          {
-            title: "Software Trainee",
-            description: "Contributed to enterprise application design, development, and testing, collaborating on debugging, code reviews, performance optimization, and agile deployments."
-          }
+          { title: "Operations Coordinator", description: "Monitoring workflows, streamlining procedures, and ensuring departmental coordination." }
         ]
       }
     ]
   },
 
   // ── EDUCATION ────────────────────────────────────────────
-  education: [
-    {
-      image: "images/ucalgary.jpg",
-      imageAlt: "University of Calgary",
-      degree: "Master of Engineering (MEng) in Software Engineering",
-      institution: "University of Calgary, Alberta, Canada",
-      description: "Advanced software development and distributed systems."
-    },
-    {
-      image: "images/ptu.jpg",
-      imageAlt: "Punjab Technical University",
-      degree: "Bachelor of Technology in Computer Science Engineering",
-      institution: "Punjab Technical University, Punjab, India",
-      description: "Foundational computer science and application development."
-    },
-    {
-      image: "images/vmmedu.webp",
-      imageAlt: "VMM Education",
-      degree: "Professional Training / Certification",
-      institution: "VMM Education, Punjab, India",
-      description: "Certificate course in Java & Spring framework"
-    }
-  ],
+  education: {
+
+    // Formal academic degrees
+    formal: [
+      {
+        image: "images/ucalgary.jpg",
+        imageAlt: "University of Calgary",
+        degree: "Master of Engineering (MEng) in Software Engineering",
+        institution: "University of Calgary, Alberta, Canada",
+        duration: "2023 - 2025",
+        description: "Advanced software development and distributed systems."
+      },
+      {
+        image: "images/ptu.jpg",
+        imageAlt: "Punjab Technical University",
+        degree: "Bachelor of Technology in Computer Science Engineering",
+        institution: "Punjab Technical University, Punjab, India",
+        duration: "2009 - 2013",
+        description: "Foundational computer science and application development."
+      }
+    ],
+
+    // Certification providers — each can have multiple courses
+    certifications: [
+      {
+        provider: "Anthropic Education",
+        image: "images/ccia.svg",
+        imageAlt: "Anthropic",
+        courses: [
+          {
+            title: "Claude Code in Action",
+            description: "Context management approaches, MCP servers and GitHub integration.",
+            verifyUrl: "https://verify.skilljar.com/c/t82jayyu3x5i"
+          }
+		  /*,
+		  {
+            title: "Building with the Claude API",
+            description: "",
+            verifyUrl: "https://verify.skilljar.com/c/t82jayyu3x5i"
+          }*/
+        ]
+      },
+	  {
+        provider: "Anthropic Education",
+        image: "images/ccia.svg",
+        imageAlt: "Anthropic",
+        courses: [
+          {
+            title: "Introduction to Model Context Protocol",
+            description: "Comprehensive coverage of the Model Context Protocol (MCP), focusing on building both MCP servers and clients using the Python SDK",
+            verifyUrl: "https://verify.skilljar.com/c/dg9x26osac3i"
+          }
+		  /*,
+		  {
+            title: "Model Context Protocol: Advanced Topics",
+            description: "Advanced features and implementation patterns for Model Context Protocol (MCP) development, focusing on server-client communication, transport mechanisms, and production deployment considerations.",
+            verifyUrl: "https://verify.skilljar.com/c/t82jayyu3x5i"
+          }*/ 
+        ]
+      },
+      {
+        provider: "VMM Education",
+        image: "images/vmmedu.webp",
+        imageAlt: "VMM Education",
+        courses: [
+          {
+            title: "Java & Spring Framework",
+            description: "Professional training in Java fundamentals and the Spring ecosystem."
+          }
+        ]
+      }
+    ]
+
+  },
 
   // ── PROJECTS ─────────────────────────────────────────────
   projects: [
