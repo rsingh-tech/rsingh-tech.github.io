@@ -357,7 +357,7 @@ const PORTFOLIO_DATA = {
         imageAlt: "University of Calgary",
         degree: "Master of Engineering (MEng) in Software Engineering",
         institution: "University of Calgary, Alberta, Canada",
-        duration: "2023 - 2025",
+        duration: "2025 - 2027",
         description: "Advanced software development and distributed systems."
       },
       {
@@ -525,4 +525,5 @@ const PORTFOLIO_DATA = {
       web3formsKey: "e2429e64-a094-46ed-b82a-53afb581f32f"
     }
   }
+
 };
