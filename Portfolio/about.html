@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Topbar ── reuses nav variables from styles.css */
+    .about-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.45rem 1.1rem;
+      border: 1.5px solid var(--primary);
+      border-radius: 50px;
+      transition: all 0.25s;
+    }
+    .back-btn:hover { background: var(--primary); color: #fff; }
+
+    /* ── Page body uses same bg/text as main page ── */
+    .about-page { background: var(--bg); min-height: 100vh; }
+
+    /* ── Content wrapper ── */
+    .about-main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── Section ── */
+    .about-section { margin-bottom: 3.5rem; }
+
+    /* ── Label pill ── same style as edu-subsection-label in styles.css ── */
+    .about-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--primary);
+      background: rgba(102,126,234,0.1);
+      border: 1px solid rgba(102,126,234,0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .about-section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    /* ── Story paragraphs ── */
+    .story-text {
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    .story-text strong { color: var(--text); }
+
+    /* ── Stat cards ── same pattern as emp-card / edu-card ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .stat-icon {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: #fff;
+      margin: 0 auto 0.8rem;
+    }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label  { font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+
+    /* ── Value / current items ── same as emp-role-entry style ── */
+    .value-list { display: flex; flex-direction: column; gap: 0.85rem; }
+    .value-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem 1.25rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .value-item:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+    .value-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1rem; flex-shrink: 0;
+    }
+    .value-body h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+    .value-body p  { font-size: 0.875rem; color: var(--text-light); line-height: 1.65; margin: 0; }
+
+    /* ── Interests ── same as skill-badge style ── */
+    .interests-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+    .interest-tag {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 0.875rem; color: var(--text-light); font-weight: 500;
+      transition: all 0.2s;
+    }
+    .interest-tag:hover { border-color: var(--primary); color: var(--primary); background: rgba(102,126,234,0.07); }
+    .interest-tag i { color: var(--primary); }
+
+    /* ── CTA strip ── same gradient as hero/contact ── */
+    .cta-strip {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      color: #fff;
+    }
+    .cta-strip h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .cta-strip p  { opacity: 0.88; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      border-radius: 50px; color: #fff;
+      text-decoration: none; font-weight: 600; font-size: 0.875rem;
+      transition: all 0.25s;
+    }
+    .cta-btn:hover { background: #fff; color: #667eea; border-color: transparent; }
+
+    /* ── Divider ── */
+    .about-divider { height: 1px; background: var(--border); margin: 2.5rem 0; }
+
+    @media (max-width: 600px) {
+      .about-main   { padding: 2rem 1rem 4rem; }
+      .about-topbar { padding: 0.75rem 1rem; }
+    }
+  </style>
+</head>
+<body class="about-page">
+
+  <!-- Topbar -->
+  <div class="about-topbar">
+    <a href="index.html" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+    </a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+      <i class="fa-solid fa-moon" id="themeIcon"></i>
+    </button>
+  </div>
+
+  <main class="about-main">
+    <!-- Story -->
+    <div class="about-section" id="ap-story"></div>
+    <div class="about-section" id="ap-impact"></div>
+    <div class="about-divider"></div>
+    <div class="about-section" id="ap-values"></div>
+    <div class="about-divider"></div>
+    <div class="about-section" id="ap-beyond"></div>
+    <div class="about-divider"></div>
+    <div class="about-section" id="ap-current"></div>
+    <div id="ap-cta"></div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script>
+    // ── Theme — shared key with main page ──
+    const THEME_KEY = "portfolio-theme";
+    function applyTheme(t) {
+      document.documentElement.setAttribute("data-theme", t);
+      const icon = document.getElementById("themeIcon");
+      if (icon) icon.className = t === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+      try { localStorage.setItem(THEME_KEY, t); } catch {}
+    }
+    const stored = (() => { try { return localStorage.getItem(THEME_KEY); } catch { return null; } })();
+    applyTheme(stored ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    });
+
+    // ── Render from PORTFOLIO_DATA ──
+    document.addEventListener("DOMContentLoaded", () => {
+      const ap = PORTFOLIO_DATA.aboutPage;
+      document.title = "About " + PORTFOLIO_DATA.site.title;
+
+      function label(icon, text) {
+        return `<span class="about-label"><i class="${icon}"></i> ${text}</span>`;
+      }
+      function sectionTitle(t) {
+        return `<h2 class="about-section-title">${t}</h2>`;
+      }
+
+      // Story
+      document.getElementById("ap-story").innerHTML = `
+        ${label(ap.story.labelIcon, ap.story.label)}
+        ${sectionTitle(ap.story.title)}
+        ${ap.story.paragraphs.map(p => `<p class="story-text">${p}</p>`).join("")}`;
+
+      // Impact
+      const statsHtml = ap.impact.stats.map(s => `
+        <div class="stat-card">
+          <div class="stat-icon"><i class="${s.icon}"></i></div>
+          <div class="stat-number">${s.number}</div>
+          <div class="stat-label">${s.label}</div>
+        </div>`).join("");
+      document.getElementById("ap-impact").innerHTML = `
+        ${label(ap.impact.labelIcon, ap.impact.label)}
+        ${sectionTitle(ap.impact.title)}
+        <div class="stat-grid">${statsHtml}</div>`;
+
+      // Values
+      const valuesHtml = ap.values.items.map(v => `
+        <div class="value-item">
+          <div class="value-icon"><i class="${v.icon}"></i></div>
+          <div class="value-body"><h4>${v.title}</h4><p>${v.text}</p></div>
+        </div>`).join("");
+      document.getElementById("ap-values").innerHTML = `
+        ${label(ap.values.labelIcon, ap.values.label)}
+        ${sectionTitle(ap.values.title)}
+        <div class="value-list">${valuesHtml}</div>`;
+
+      // Beyond
+      const interestsHtml = ap.beyond.interests.map(i =>
+        `<span class="interest-tag"><i class="${i.icon}"></i> ${i.label}</span>`).join("");
+      document.getElementById("ap-beyond").innerHTML = `
+        ${label(ap.beyond.labelIcon, ap.beyond.label)}
+        ${sectionTitle(ap.beyond.title)}
+        ${ap.beyond.paragraphs.map(p => `<p class="story-text">${p}</p>`).join("")}
+        <div class="interests-wrap">${interestsHtml}</div>`;
+
+      // Current
+      const currentHtml = ap.current.items.map(v => `
+        <div class="value-item">
+          <div class="value-icon"><i class="${v.icon}"></i></div>
+          <div class="value-body"><h4>${v.title}</h4><p>${v.text}</p></div>
+        </div>`).join("");
+      document.getElementById("ap-current").innerHTML = `
+        ${label(ap.current.labelIcon, ap.current.label)}
+        ${sectionTitle(ap.current.title)}
+        <div class="value-list">${currentHtml}</div>`;
+
+      // CTA
+      const ctaBtns = ap.cta.links.map(l =>
+        `<a href="${l.href}" class="cta-btn"${l.target ? ` target="${l.target}"` : ""}>
+          <i class="${l.icon}"></i> ${l.label}
+        </a>`).join("");
+      document.getElementById("ap-cta").innerHTML = `
+        <div class="cta-strip">
+          <h3>${ap.cta.title}</h3>
+          <p>${ap.cta.subtitle}</p>
+          <div class="cta-btns">${ctaBtns}</div>
+        </div>`;
+    });
+  </script>
+</body>
+</html>
