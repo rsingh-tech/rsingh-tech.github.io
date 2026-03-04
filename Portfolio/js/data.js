@@ -357,7 +357,7 @@ const PORTFOLIO_DATA = {
         imageAlt: "University of Calgary",
         degree: "Master of Engineering (MEng) in Software Engineering",
         institution: "University of Calgary, Alberta, Canada",
-        duration: "2025 - 2027",
+        duration: "Sep 2025 - Apr 2027",
         description: "Advanced software development and distributed systems."
       },
       {
@@ -365,7 +365,7 @@ const PORTFOLIO_DATA = {
         imageAlt: "Punjab Technical University",
         degree: "Bachelor of Technology in Computer Science Engineering",
         institution: "Punjab Technical University, Punjab, India",
-        duration: "2009 - 2013",
+        duration: "Sep 2009 - April 2013",
         description: "Foundational computer science and application development."
       }
     ],
@@ -379,15 +379,14 @@ const PORTFOLIO_DATA = {
         courses: [
           {
             title: "Claude Code in Action",
-            description: "Context management approaches, MCP servers and GitHub integration.",
+            description: "Integrated Claude Code into dev workflows; built custom commands, hooks, and MCP server extensions; implemented AI-powered GitHub automation using the Claude Code SDK.",
             verifyUrl: "https://verify.skilljar.com/c/t82jayyu3x5i"
+          },
+		      {
+            title: "Claude 101",
+            description: "Learned to effectively use Claude for workplace productivity; covered projects, artifacts, tool integrations, enterprise search, and role-based use cases.",
+            verifyUrl: "https://verify.skilljar.com/c/6vrcct7eu5ot"
           }
-		  /*,
-		  {
-            title: "Building with the Claude API",
-            description: "",
-            verifyUrl: "https://verify.skilljar.com/c/t82jayyu3x5i"
-          }*/
         ]
       },
 	  {
@@ -397,15 +396,14 @@ const PORTFOLIO_DATA = {
         courses: [
           {
             title: "Introduction to Model Context Protocol",
-            description: "Comprehensive coverage of the Model Context Protocol (MCP), focusing on building both MCP servers and clients using the Python SDK",
-            verifyUrl: "https://verify.skilljar.com/c/dg9x26osac3i"
-          }
-		  /*,
-		  {
+            description: "Built MCP servers & clients in Python; mastered tools, resources, and prompts to integrate Claude AI with external services.",
+            verifyUrl: "https://verify.skilljar.com/c/g9x26osac3i"
+          },
+		      {
             title: "Model Context Protocol: Advanced Topics",
-            description: "Advanced features and implementation patterns for Model Context Protocol (MCP) development, focusing on server-client communication, transport mechanisms, and production deployment considerations.",
-            verifyUrl: "https://verify.skilljar.com/c/t82jayyu3x5i"
-          }*/ 
+            description: "Mastered production MCP patterns: sampling, notifications, roots-based file access, Stdio & StreamableHTTP transports, and scalable deployment strategies.",
+            verifyUrl: "https://verify.skilljar.com/c/wmi3t7kshvku"
+          } 
         ]
       },
       {
