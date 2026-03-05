@@ -308,8 +308,8 @@ const PORTFOLIO_DATA = {
         duration: "Jul 2013 - Sep 2024",
         isCurrent: false,
         barLeft:  0,
-        barWidth: 52,
-        colFlex:  52,
+        barWidth: 38.5,
+        colFlex:  40,
         roles: [
           { title: "Sr. Tech Lead",          description: "Delivered an enterprise integration platform for Fortune 500 clients, enabling 40% faster deployments, high-performance microservices, no-code integrations, SOC 2 security, and ML automation." },
           { title: "Tech Lead",              description: "Led a cloud-native integration platform for 500+ clients with 99.9% uptime, 50+ SaaS integrations, ML-based anomaly detection, and 3x scalable performance." },
@@ -324,9 +324,9 @@ const PORTFOLIO_DATA = {
         logoAlt: "Kumaran Systems",
         duration: "Dec 2024 - Aug 2025",
         isCurrent: false,
-        barLeft:  52,
-        barWidth: 25,
-        colFlex:  25,
+        barLeft:  38.5,
+        barWidth: 32,
+        colFlex:  30,
         roles: [
           { title: "Sr. Tech Lead", description: "Owned and led end-to-end backend system design, driving scalable, secure, and high-performance solutions." }
         ]
@@ -337,9 +337,9 @@ const PORTFOLIO_DATA = {
         logoAlt: "FedEx Corp",
         duration: "Sep 2025 - Present",
         isCurrent: true,
-        barLeft:  77,
-        barWidth: 23,
-        colFlex:  23,
+        barLeft:  70.5,
+        barWidth: 30,
+        colFlex:  30,
         roles: [
           { title: "Operations Coordinator", description: "Monitoring workflows, streamlining procedures, and ensuring departmental coordination." }
         ]
@@ -502,7 +502,7 @@ const PORTFOLIO_DATA = {
     intro: "I'm always interested in hearing about new projects and opportunities. Whether it's a potential partnership, a job opportunity, or a simple \"hello,\" I'd love to hear from you.",
     links: [
       {
-        href: "mailto:ranjit.singh.tech@gmail.com",
+        href: "mailto:ranjit92singh@gmail.com",
         icon: "fa-solid fa-envelope",
         label: "Email Me"
       },

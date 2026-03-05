@@ -62,55 +62,126 @@
     if (ft) ft.textContent = s.footerText;
   }
 
-  // ── Hero ──────────────────────────────────────────────────────────────────
+// ── Hero Section ────────────────────────────────────────────────────────────
 
-  function renderHero() {
-    const h = PORTFOLIO_DATA.hero;
-    const section = document.getElementById("hero");
-    if (!section) return;
+function renderHero() {
+  const h = PORTFOLIO_DATA.hero;
+  const section = document.getElementById("hero");
+  if (!section) return;
 
-    const ctaHtml = h.ctaButtons.map(b =>
-      `<a href="${b.href}" class="cta-btn ${b.style === "secondary" ? "secondary" : ""}"
-          ${b.target ? `target="${b.target}"` : ""}>
-        <span>${b.label}</span>
-        <span><i class="${b.icon}" aria-hidden="true"></i></span>
-      </a>`
-    ).join("");
+  const subtitleText = Array.isArray(h.subtitle)
+    ? h.subtitle.join("</br>")
+    : h.subtitle;
 
-    const badgesHtml = h.skillBadges.map(b => `<span class="skill-badge">${b}</span>`).join("");
-    const subtitleHtml = h.subtitle.join("<br>");
+  const chipsHtml = h.skillBadges.map(b =>
+    `<span class="hp-chip"><i class="fa-solid fa-check"></i>${b}</span>`
+  ).join("");
 
-    const socialHtml = (h.socialLinks || []).map(s =>
-      `<a href="${s.href}" class="hero-social-btn" aria-label="${s.label}"${s.target ? ` target="${s.target}"` : ""}>
-        <i class="${s.icon}" aria-hidden="true"></i>
-      </a>`
-    ).join("");
+  const socialsHtml = (h.socialLinks || []).map(s =>
+    `<a href="${s.href}" class="hp-soc" aria-label="${s.label}"
+        ${s.target ? `target="${s.target}"` : ""}>
+      <i class="${s.icon}"></i>
+    </a>`
+  ).join("");
 
-    section.innerHTML = `
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-image-container">
-            <div class="hero-image-wrapper">
-              <img src="${h.photo}" alt="${h.photoAlt}" class="hero-image">
+  const [primary, ...others] = h.ctaButtons;
+
+  const primaryHtml = primary
+    ? `<a href="${primary.href}" class="hp-btn-solid"
+          ${primary.target ? `target="${primary.target}"` : ""}>
+        <i class="${primary.icon}"></i>${primary.label}
+       </a>`
+    : "";
+
+  const othersHtml = others.map(b =>
+    `<a href="${b.href}" class="hp-btn-outline"
+        ${b.target ? `target="${b.target}"` : ""}>
+      <i class="${b.icon}"></i>${b.label}
+    </a>`
+  ).join("");
+
+  const stats = [
+    { val: "12+",   lbl: "Years Exp."   },
+    { val: "200+",  lbl: "Clients"      },
+    { val: "99.9%", lbl: "Uptime"       },
+    { val: "50+",   lbl: "Integrations" }
+  ];
+
+  const statsHtml = stats.map(s =>
+    `<div class="hp-stat">
+      <span class="hp-stat-val">${s.val}</span>
+      <span class="hp-stat-lbl">${s.lbl}</span>
+    </div>`
+  ).join("");
+
+  section.innerHTML = `
+    <!-- Orbs -->
+    <div class="hp-orb hp-orb-1"></div>
+    <div class="hp-orb hp-orb-2"></div>
+    <div class="hp-orb hp-orb-3"></div>
+
+    <!-- Split layout -->
+    <div class="hp-layout">
+
+      <!-- ═══════════════════════════
+           LEFT — Photo card + stats
+      ═══════════════════════════ -->
+      <div class="hp-left">
+
+        <div class="hp-photo-card">
+          <div class="hp-photo-inner">
+
+            <div class="hp-photo-ring">
+              <img src="${h.photo}" alt="${h.photoAlt}" />
             </div>
-          </div>
-          <div class="hero-text-content">
-            <h1 class="hero-title">${h.name}</h1>
-            <div class="hero-role">${h.role}</div>
-            <p class="hero-subtitle">${subtitleHtml}</p>
-            ${socialHtml ? `<div class="hero-social-links">${socialHtml}</div>` : ""}
-            <div class="hero-cta-group">
-              ${ctaHtml}
-              <a href="about.html" class="cta-btn secondary about-me-btn">
-                <span>More About Me</span>
-                <span><i class="fa fa-user" aria-hidden="true"></i></span>
-              </a>
+
+            <div class="hp-avail">
+              <span class="hp-avail-dot"></span>
+              Open to Opportunities
             </div>
-            <div class="hero-skills">${badgesHtml}</div>
+
           </div>
+
+          
         </div>
-      </div>`;
-  }
+
+        <!-- Stats 2×2 grid -->
+        <div class="hp-stats">${statsHtml}</div>
+
+      </div>
+
+      <!-- ═══════════════════════════
+           RIGHT — Text content
+      ═══════════════════════════ -->
+      <div class="hp-right">
+
+        <div class="hp-label">
+          <i class="fa-solid fa-code"></i>
+          Lead Software Engineer
+        </div>
+
+        <h1 class="hp-name">${h.name}</h1>
+
+        <div class="hp-rule"></div>
+
+        <p class="hp-desc">${subtitleText}</p>
+
+        <div class="hp-chips">${chipsHtml}</div>
+
+        <div class="hp-ctas">
+          ${primaryHtml}
+          ${othersHtml}
+          <a href="about.html" class="hp-btn-outline">
+            <i class="fa fa-user"></i>About Me
+          </a>
+        </div>
+
+        <div class="hp-socials">${socialsHtml}</div>
+
+      </div>
+    </div>
+   `;
+}
 
   // ── About ─────────────────────────────────────────────────────────────────
 
@@ -495,20 +566,170 @@
 
   // ── Contact ───────────────────────────────────────────────────────────────
 
-  function renderContact() {
-    const c       = PORTFOLIO_DATA.contact;
-    const content = document.querySelector(".contact-content");
-    if (content) {
-      content.querySelector("p").textContent = c.intro;
-      content.querySelector(".contact-links").innerHTML = c.links.map(l =>
-        `<a href="${l.href}" class="contact-link"${l.target ? ` target="${l.target}"` : ""}>
-          <i class="${l.icon}"></i> ${l.label}
-        </a>`
-      ).join("");
-    }
-    const keyInput = document.querySelector('input[name="access_key"]');
-    if (keyInput) keyInput.value = c.form.web3formsKey;
+function renderContact() {
+  const c       = PORTFOLIO_DATA.contact;
+  const section = document.getElementById("contact");
+  if (!section) return;
+
+  // Map links to richer display data
+  const linkMeta = {
+    "fa-solid fa-envelope":   { label: "Email",    hint: "Drop me a message" },
+    "fa-brands fa-github":    { label: "GitHub",   hint: "See my projects"  },
+    "fa-brands fa-linkedin":  { label: "LinkedIn", hint: "Connect with me"  }
+  };
+
+  const linksHtml = c.links.map(l => {
+    const meta  = linkMeta[l.icon] || { label: l.label, hint: "" };
+    // Friendly display value — strip mailto: / https://
+    const display = l.href
+      .replace("mailto:", "")
+      .replace(/^https?:\/\/(www\.)?/, "");
+    return `
+      <a href="${l.href}" class="ct-link-item"${l.target ? ` target="${l.target}"` : ""}>
+        <div class="ct-link-icon"><i class="${l.icon}"></i></div>
+        <div class="ct-link-text">
+          <span class="ct-link-label">${meta.hint}</span>
+          <span class="ct-link-value">${display}</span>
+        </div>
+        <i class="fa-solid fa-chevron-right ct-link-arrow"></i>
+      </a>`;
+  }).join("");
+
+  // Replace the entire #contact section innerHTML
+  section.innerHTML = `
+    <!-- Orbs -->
+    <div class="ct-orb ct-orb-1"></div>
+    <div class="ct-orb ct-orb-2"></div>
+
+    <div class="ct-container">
+
+      <!-- Section header -->
+      <div class="ct-header">
+        <h2 class="ct-title">Get In Touch</h2>
+        <p class="ct-subtitle">${c.intro}</p>
+      </div>
+
+      <!-- Split grid -->
+      <div class="ct-grid">
+
+        <!-- ════════════════════
+             LEFT — Info card
+        ════════════════════ -->
+        <div class="ct-info-card">
+          <div class="ct-info-body">
+
+            <div class="ct-links-label">
+              <i class="fa-solid fa-link"></i>
+              Reach me directly
+            </div>
+
+            <div class="ct-links">${linksHtml}</div>
+
+          </div>
+          <div class="ct-info-footer">
+            <span class="ct-footer-dot"></span>
+            Available for new opportunities
+          </div>
+          
+        </div>
+
+        <!-- ════════════════════
+             RIGHT — Form card
+        ════════════════════ -->
+        <div class="ct-form-card">
+
+          <div class="ct-form-header">
+            <div class="ct-form-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <span class="ct-form-title">Send a Message</span>
+          </div>
+
+          <div class="ct-form-body">
+
+            <div id="ctFormMsg" class="ct-form-msg"></div>
+
+            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="${c.form.web3formsKey}" />
+
+              <div class="ct-form-row">
+                <div class="ct-field">
+                  <label for="ct-name">Name</label>
+                  <input type="text" id="ct-name" name="name"
+                    placeholder="Ranjit Singh" required />
+                </div>
+                <div class="ct-field">
+                  <label for="ct-email">Email</label>
+                  <input type="email" id="ct-email" name="email"
+                    placeholder="you@example.com" />
+                </div>
+              </div>
+
+              <div class="ct-field">
+                <label for="ct-message">Message</label>
+                <textarea id="ct-message" name="message" rows="5"
+                  placeholder="What's on your mind?" required></textarea>
+              </div>
+
+              <button type="submit" class="ct-submit">
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>`;
+}
+
+function initContactForm() {
+  // Wait for renderContact to inject the form
+  const attach = () => {
+    const form = document.getElementById("contactForm");
+    const msg  = document.getElementById("ctFormMsg");
+    if (!form || !msg) return;
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      const btn       = form.querySelector('button[type="submit"]');
+      btn.disabled    = true;
+      btn.innerHTML   = `<i class="fa-solid fa-spinner fa-spin"></i> Sending…`;
+      msg.textContent = "";
+      msg.className   = "ct-form-msg";
+
+      try {
+        const res  = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: new FormData(form)
+        });
+        const data = await res.json();
+        if (data.success) {
+          msg.innerHTML   = `<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been sent successfully.`;
+          msg.className   = "ct-form-msg success";
+          form.reset();
+        } else {
+          throw new Error("failed");
+        }
+      } catch {
+        msg.innerHTML   = `<i class="fa-solid fa-circle-exclamation"></i> Oops! Something went wrong. Please try again.`;
+        msg.className   = "ct-form-msg error";
+      }
+
+      btn.disabled  = false;
+      btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Send Message`;
+    });
+  };
+
+  // renderContact runs synchronously before DOMContentLoaded completes,
+  // so the form is available immediately — but guard with a small defer anyway
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", attach);
+  } else {
+    attach();
   }
+}
 
   // ── Carousel — RAF infinite auto-scroll + button nudge ───────────────────
 
@@ -596,40 +817,7 @@
 
   // ── Contact form ──────────────────────────────────────────────────────────
 
-  function initContactForm() {
-    const form = document.getElementById("contactForm");
-    const msg  = document.getElementById("formMessage");
-    if (!form) return;
-
-    form.addEventListener("submit", async e => {
-      e.preventDefault();
-      const btn       = form.querySelector('button[type="submit"]');
-      btn.disabled    = true;
-      btn.textContent = "Sending...";
-      msg.textContent = "";
-
-      try {
-        const res  = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: new FormData(form)
-        });
-        const data = await res.json();
-        if (data.success) {
-          msg.textContent = "Thank you! Your message has been sent successfully.";
-          msg.className   = "form-message success";
-          form.reset();
-        } else {
-          throw new Error("failed");
-        }
-      } catch {
-        msg.textContent = "Oops! Something went wrong. Please try again.";
-        msg.className   = "form-message error";
-      }
-
-      btn.disabled    = false;
-      btn.textContent = "Send Message";
-    });
-  }
+  
   
   const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1476345332379160698/8IFs_9ZG0vmy6TjDjrsBp6OccU97-XtndeyO9NjBVyiLC4o2-a8oZUVOTFBd2griBJPJ";
 
@@ -680,7 +868,7 @@
     renderContact();
     initNavInteractions();
     initContactForm();
-	sendDiscordNotification();
+	//sendDiscordNotification();
   });
 
 })();
