@@ -868,7 +868,7 @@ function initContactForm() {
     renderContact();
     initNavInteractions();
     initContactForm();
-	//sendDiscordNotification();
+	  sendDiscordNotification();
   });
 
 })();
