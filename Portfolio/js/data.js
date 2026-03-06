@@ -424,6 +424,54 @@ const PORTFOLIO_DATA = {
   // ── PROJECTS ─────────────────────────────────────────────
   projects: [
     {
+      image: "images/coad.jpg",
+      title: "CloudOps AI Dashboard",
+      description: "Real-time cloud infrastructure monitoring with ML anomaly detection and natural language querying across AWS/Azure.",
+      tags: ["Python", "FastAPI", "React", "AWS CloudWatch", "TensorFlow", "PostgreSQL", "Docker"]
+    },
+    {
+      image: "images/sag.jpg",
+      title: "SmartAPI Gateway",
+      description: "Self-documenting API gateway that auto-generates OpenAPI specs and suggests optimizations via LLM traffic analysis.",
+      tags: ["Java", "Spring Boot", "Spring Cloud Gateway", "OpenAI API", "Redis", "Docker", "Kubernetes"]
+    },
+    {
+      image: "images/dto.jpg",
+      title: "Distributed Task Orchestrator",
+      description: "Microservices workflow engine with visual DAG builder, fault-tolerant retries, and real-time execution monitoring.",
+      tags: ["Java", "Spring Boot", "Apache Kafka", "Redis", "PostgreSQL", "Docker", "Kubernetes"]
+    },
+    {
+      image: "images/icrb.jpg",
+      title: "Intelligent Code Review Bot",
+      description: "GitHub App for automated PR reviews flagging security issues, performance anti-patterns, and style violations.",
+      tags: ["Python", "FastAPI", "GitHub Actions", "OpenAI API", "LangChain", "AWS Lambda", "Docker"]
+    },
+    {
+      image: "images/mtssp.png",
+      title: "Multi-Tenant SaaS Starter Platform",
+      description: "Production-ready SaaS boilerplate with tenant isolation, JWT auth, Stripe billing, and one-click cloud deployment.",
+      tags: ["Java", "Spring Boot", "React", "PostgreSQL", "Stripe API", "AWS", "Terraform", "Docker"]
+    },
+    {
+      image: "images/mpas.jpg",
+      title: "ML Pipeline as a Service",
+      description: "End-to-end MLOps platform — upload dataset, train, and get a deployed REST endpoint automatically.",
+      tags: ["Python", "FastAPI", "AWS SageMaker", "Docker", "React", "PostgreSQL"]
+    },
+    {
+      image: "images/rtesp.jpg",
+      title: "Real-Time Event Streaming Platform",
+      description: "Kafka-based streaming system with live visualization of throughput, consumer lag, and topic health.",
+      tags: ["Java", "Spring Boot", "Apache Kafka", "React", "PostgreSQL", "Docker"]
+    },
+    {
+      image: "images/aprjm.jpg",
+      title: "AI-Powered Resume & Job Matcher",
+      description: "Parses resumes with NLP, extracts skills, and ranks job matches with intelligent scoring.",
+      tags: ["Java", "Spring Boot", "Python", "spaCy", "React", "PostgreSQL", "Docker"]
+    },
+    {
       image: "images/ace.png",
       title: "Adeptia Connect Enterprise",
       description: "An advanced, on-premise integration platform designed for large-scale businesses that require robust, secure, and customizable data integration solutions.",
@@ -458,7 +506,8 @@ const PORTFOLIO_DATA = {
       title: "Web Scrapper",
       description: "A complete, production-ready web scraper built with Python that can extract structured data from websites including job listings, product prices, and more.",
       tags: ["Python"]
-    },
+    }
+    /*,
     {
       image: "images/mdconverter.png",
       title: "Markdown Converter",
@@ -494,7 +543,7 @@ const PORTFOLIO_DATA = {
       title: "Email Sender Application",
       description: "An automated email sending application to streamline communication. Implemented features like scheduled emails, bulk sending, and customizable templates.",
       tags: ["POP3/IMAP"]
-    }
+    }*/
   ],
 
   // ── CONTACT ──────────────────────────────────────────────
