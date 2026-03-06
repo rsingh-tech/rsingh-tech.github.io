@@ -456,7 +456,7 @@ const PORTFOLIO_DATA = {
     {
       image: "images/mpas.jpg",
       title: "ML Pipeline as a Service",
-      description: "End-to-end MLOps platform — upload dataset, train, and get a deployed REST endpoint automatically.",
+      description: "End-to-end MLOps platform - upload dataset, train, and get a deployed REST endpoint automatically.",
       tags: ["Python", "FastAPI", "AWS SageMaker", "Docker", "React", "PostgreSQL"]
     },
     {
