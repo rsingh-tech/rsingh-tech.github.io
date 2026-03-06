@@ -448,7 +448,7 @@ const PORTFOLIO_DATA = {
       tags: ["Python", "FastAPI", "GitHub Actions", "OpenAI API", "LangChain", "AWS Lambda", "Docker"]
     },
     {
-      image: "images/mtssp.png",
+      image: "images/mtssp.PNG",
       title: "Multi-Tenant SaaS Starter Platform",
       description: "Production-ready SaaS boilerplate with tenant isolation, JWT auth, Stripe billing, and one-click cloud deployment.",
       tags: ["Java", "Spring Boot", "React", "PostgreSQL", "Stripe API", "AWS", "Terraform", "Docker"]
