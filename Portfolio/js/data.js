@@ -32,7 +32,8 @@ const PORTFOLIO_DATA = {
     ],
     ctaButtons: [
       { label: "View My Work", href: "#projects", icon: "fa fa-arrow-right", style: "primary" },
-      { label: "View Resume",  href: "assets/Resume_Ranjit.pdf", icon: "fa fa-file", style: "secondary", target: "_blank" }
+      { label: "View Resume",  href: "assets/Resume_Ranjit.pdf", icon: "fa fa-file", style: "secondary", target: "_blank" },
+	  { label: "View Skills",  href: "#skills", icon: "fa fa-arrow-right", style: "secondary"}
     ],
     // Social links shown in the hero (icon buttons)
     socialLinks: [
@@ -424,101 +425,125 @@ const PORTFOLIO_DATA = {
   // ── PROJECTS ─────────────────────────────────────────────
   projects: [
     {
-      image: "images/coad.jpg",
-      title: "CloudOps AI Dashboard",
-      description: "Real-time cloud infrastructure monitoring with ML anomaly detection and natural language querying across AWS/Azure.",
-      tags: ["Python", "FastAPI", "React", "AWS CloudWatch", "TensorFlow", "PostgreSQL", "Docker"]
-    },
-    {
       image: "images/sag.jpg",
       title: "SmartAPI Gateway",
       description: "Self-documenting API gateway that auto-generates OpenAPI specs and suggests optimizations via LLM traffic analysis.",
-      tags: ["Java", "Spring Boot", "Spring Cloud Gateway", "OpenAI API", "Redis", "Docker", "Kubernetes"]
+      tags: ["Java", "Spring Boot", "Spring Cloud Gateway", "OpenAI API", "Redis", "Docker", "Kubernetes"],
+	  category: "Backend",
+	  githubUrl: "https://github.com/ranjit-engineering-lab/smart-api-gateway"
+    },
+	{
+      image: "images/coad.jpg",
+      title: "CloudOps AI Dashboard",
+      description: "Real-time cloud infrastructure monitoring with ML anomaly detection and natural language querying across AWS/Azure.",
+      tags: ["Python", "FastAPI", "React", "AWS CloudWatch", "TensorFlow", "PostgreSQL", "Docker"],
+	  category: "AI/ML",
+	  githubUrl: "https://github.com/ranjit-engineering-lab/cloudops-ai-dashboard"
     },
     {
       image: "images/dto.jpg",
       title: "Distributed Task Orchestrator",
       description: "Microservices workflow engine with visual DAG builder, fault-tolerant retries, and real-time execution monitoring.",
-      tags: ["Java", "Spring Boot", "Apache Kafka", "Redis", "PostgreSQL", "Docker", "Kubernetes"]
+      tags: ["Java", "Spring Boot", "Apache Kafka", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
+	  category: "Backend",
+	  githubUrl: "https://github.com/ranjit-engineering-lab/distributed-task-orchestrator"
     },
     {
       image: "images/icrb.jpg",
       title: "Intelligent Code Review Bot",
       description: "GitHub App for automated PR reviews flagging security issues, performance anti-patterns, and style violations.",
-      tags: ["Python", "FastAPI", "GitHub Actions", "OpenAI API", "LangChain", "AWS Lambda", "Docker"]
+      tags: ["Python", "FastAPI", "GitHub Actions", "OpenAI API", "LangChain", "AWS Lambda", "Docker"],
+	  category: "AI/ML",
+	  githubUrl: "https://github.com/ranjit-engineering-lab/code-review-bot"
     },
     {
       image: "images/mtssp.PNG",
       title: "Multi-Tenant SaaS Starter Platform",
       description: "Production-ready SaaS boilerplate with tenant isolation, JWT auth, Stripe billing, and one-click cloud deployment.",
-      tags: ["Java", "Spring Boot", "React", "PostgreSQL", "Stripe API", "AWS", "Terraform", "Docker"]
+      tags: ["Java", "Spring Boot", "React", "PostgreSQL", "Stripe API", "AWS", "Terraform", "Docker"],
+	  category: "Cloud/DevOps",
+	  githubUrl: "https://github.com/ranjit-engineering-lab/saas-platform"
     },
     {
       image: "images/mpas.jpg",
       title: "ML Pipeline as a Service",
       description: "End-to-end MLOps platform - upload dataset, train, and get a deployed REST endpoint automatically.",
-      tags: ["Python", "FastAPI", "AWS SageMaker", "Docker", "React", "PostgreSQL"]
+      tags: ["Python", "FastAPI", "AWS SageMaker", "Docker", "React", "PostgreSQL"],
+	  category: "AI/ML",
+	  githubUrl: "https://github.com/ranjit-engineering-lab/ml-pipeline-as-a-service"
     },
     {
       image: "images/rtesp.jpg",
       title: "Real-Time Event Streaming Platform",
       description: "Kafka-based streaming system with live visualization of throughput, consumer lag, and topic health.",
-      tags: ["Java", "Spring Boot", "Apache Kafka", "React", "PostgreSQL", "Docker"]
+      tags: ["Java", "Spring Boot", "Apache Kafka", "React", "PostgreSQL", "Docker"],
+	  category: "Backend",
+	  githubUrl: ""
     },
     {
       image: "images/aprjm.jpg",
       title: "AI-Powered Resume & Job Matcher",
       description: "Parses resumes with NLP, extracts skills, and ranks job matches with intelligent scoring.",
-      tags: ["Java", "Spring Boot", "Python", "spaCy", "React", "PostgreSQL", "Docker"]
+      tags: ["Java", "Spring Boot", "Python", "spaCy", "React", "PostgreSQL", "Docker"],
+	  category: "AI/ML",
+	  githubUrl: ""
     },
     {
       image: "images/ace.png",
       title: "Adeptia Connect Enterprise",
       description: "An advanced, on-premise integration platform designed for large-scale businesses that require robust, secure, and customizable data integration solutions.",
-      tags: ["ExtJs", "Java"]
+      tags: ["ExtJs", "Java"],
+	  category: "Enterprise"
     },
     {
       image: "images/ac.png",
       title: "Adeptia Connect (Cloud)",
       description: "A modern, cloud-based integration platform designed to simplify and accelerate business-to-business (B2B) and application-to-application (A2A) integrations.",
-      tags: ["ExtJs", "Java"]
+      tags: ["ExtJs", "Java"],
+	  category: "Enterprise"
     },
     {
       image: "images/ais.png",
       title: "Adeptia Integration Suite (AIS)",
       description: "A comprehensive middleware platform designed to enable seamless integration, automation, and management of data flows between diverse systems.",
-      tags: ["ExtJs", "Java"]
+      tags: ["ExtJs", "Java"],
+	  category: "Enterprise"
     },
     {
       image: "images/intakeassist.png",
       title: "Intake Assist",
       description: "A healthcare solution designed to streamline the collection, processing, and management of patient data during the intake process.",
-      tags: ["ExtJs", "Java"]
+      tags: ["ExtJs", "Java"],
+	  category: "Enterprise"
     },
     {
       image: "images/wotc.png",
       title: "Work Opportunity Tax Credit",
       description: "Helping employers claim tax credits when hiring individuals from certain target groups who face significant barriers to employment.",
-      tags: ["JSP/Servlets", "Java"]
+      tags: ["JSP/Servlets", "Java"],
+	  category: "Enterprise"
     },
     {
       image: "images/webscrapper.png",
       title: "Web Scrapper",
       description: "A complete, production-ready web scraper built with Python that can extract structured data from websites including job listings, product prices, and more.",
-      tags: ["Python"]
+      tags: ["Python"],
+	  category: "Backend"
     }
     /*,
     {
       image: "images/mdconverter.png",
       title: "Markdown Converter",
       description: "A Python project for converting Markdown files to HTML.",
-      tags: ["Python"]
+      tags: ["Python"],
+	  category: "Open Source"
     },
     {
       image: "images/llmcomparison.png",
       title: "LLM Comparator",
       description: "A React-based web application that allows you to compare responses from multiple Large Language Models (LLMs) side-by-side in real-time.",
-      tags: ["React", "TypeScript", "Java (Spring AI)"]
+      tags: ["React", "TypeScript", "Java (Spring AI)"],
+	  category: "Front End"
     },
     {
       image: "images/mpcs.png",

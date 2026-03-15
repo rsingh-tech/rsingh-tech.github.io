@@ -92,30 +92,27 @@
          PROJECTS  – content injected by JS
     ══════════════════════════════════════════ -->
     <section id="projects">
-      <div class="projects-container">
-        <h2>Projects</h2>
-        <div class="carousel-container">
+  <div class="prj-container">
+    <!-- Header -->
+    <div class="prj-header">
+      <h2 class="prj-title">Projects</h2>
+    </div>
 
-          <!-- Left arrow -->
-          <button class="carousel-btn left" onclick="scrollCarousel('left')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
+    <!-- Filters — injected by JS -->
+    <div class="prj-filters" id="prjFilters"></div>
 
-          <!-- Project cards injected by JS -->
-          <div class="projects-grid" id="projectGrid"></div>
+    <!-- Grid — injected by JS -->
+    <div class="prj-grid" id="prjGrid"></div>
 
-          <!-- Right arrow -->
-          <button class="carousel-btn right" onclick="scrollCarousel('right')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-
-        </div>
-      </div>
-    </section>
+    <!-- Show More -->
+    <div class="prj-toggle-row">
+      <button class="prj-toggle-btn" id="prjToggleBtn" onclick="prjToggleMore()">
+        <i class="fa-solid fa-chevron-down" id="prjToggleIcon"></i>
+        <span id="prjToggleLabel">Show More Projects</span>
+      </button>
+    </div>
+  </div>
+</section>
 
     <!-- ══════════════════════════════════════════
          CONTACT

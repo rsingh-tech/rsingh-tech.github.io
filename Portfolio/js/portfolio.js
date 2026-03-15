@@ -204,7 +204,7 @@ function renderHero() {
 
   // ── Skills ────────────────────────────────────────────────────────────────
 
-  function renderSkills() {
+function renderSkills() {
     const sk = PORTFOLIO_DATA.skills;
     const container = document.querySelector("#skills .container");
     if (!container) return;
@@ -292,6 +292,7 @@ function renderHero() {
 
     container.innerHTML = `
       <div class="section-header">
+        
         <h2>Technical Skills &amp; Expertise</h2>
         <p>${sk.sectionSubtitle}</p>
       </div>
@@ -303,17 +304,31 @@ function renderHero() {
         </button>
       </div>
       <div class="sk-detail" id="skillsDetail">
-        <div class="skills-grid">${allCardsHtml}</div>
+
+        <div class="sk-detail-block">
+          <div class="sk-subsection-label">
+            <i class="fa-solid fa-rocket"></i> Core Capabilities
+          </div>
+          <div class="skills-grid">${allCardsHtml}</div>
+        </div>
+
         <div class="methodologies-section">
-          <h3>Development Methodologies</h3>
+          <div class="sk-subsection-label">
+            <i class="fa-solid fa-rotate"></i> Development Methodologies
+          </div>
           <div class="methodology-grid">${methodsHtml}</div>
         </div>
+
         <div class="soft-skills">
-          <h3>Professional Competencies</h3>
+          <div class="sk-subsection-label">
+            <i class="fa-solid fa-users"></i> Professional Competencies
+          </div>
           <div class="soft-skills-grid">${softHtml}</div>
         </div>
+
       </div>`;
   }
+
 
   // ── Employment ────────────────────────────────────────────────────────────
 
@@ -322,129 +337,60 @@ function renderHero() {
     const section = document.querySelector("#employment");
     if (!section) return;
 
+    const container = section.querySelector(".emp-list");
+    if (!container) return;
+
+    
     const subtitle = section.querySelector(".emp-header p");
     if (subtitle) subtitle.textContent = emp.sectionSubtitle;
 
-    const container = section.querySelector(".emp-list");
-    if (!container) return;
-    container.className = "";
+    // Accent colors per card
+    const accentColors = ["#667eea", "#0ea5e9", "#f97316"];
 
-    const palette = ["#667eea", "#0EA5E9", "#f093fb", "#4facfe", "#43e97b", "#fa709a"];
-
-    // ── DESKTOP: horizontal bar + side-by-side columns ────────────────────
-    const ticksHtml = emp.timeline.ticks.map(t =>
-      `<div class="emp-bar-tick" style="left:${t.left}%">
-        <div class="emp-bar-tick-line"></div>
-        <span>${t.label}</span>
-      </div>`
-    ).join("");
-
-    const segmentsHtml = emp.companies.map((c, i) => {
-      const color = palette[i % palette.length];
-      return `<div class="emp-bar-seg"
-        style="left:${c.barLeft}%;width:${c.barWidth}%;background:${color}"
-        title="${c.name}: ${c.duration}"></div>`;
-    }).join("");
-
-    const desktopEntriesHtml = emp.companies.map((c, ci) => {
-      const color = palette[ci % palette.length];
-      const badge = c.isCurrent ? `<span class="emp-badge-current">Current</span>` : "";
+    const cardsHtml = emp.companies.map((c, ci) => {
+      const color  = accentColors[ci % accentColors.length];
+      const badge  = c.isCurrent
+        ? `<span class="emp-co-badge"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#43e97b;margin-right:4px;vertical-align:middle;animation:hpPulse 2.2s infinite"></span>Current</span>`
+        : "";
 
       const rolesHtml = c.roles.map((r, ri) => {
-        const descId = `emp-desc-${ci}-${ri}`;
-        const isLast = ri === c.roles.length - 1;
-        return `<div class="emp-tl-item${isLast ? " emp-tl-last" : ""}" style="--dot-color:${color}">
-          <div class="emp-tl-dot"></div>
-          <div class="emp-tl-body">
-            <div class="emp-tl-role-header">
-              <span class="emp-role-name" style="color:${color}">${r.title}</span>
-              <button class="emp-expand-btn" onclick="empToggle('${descId}',this)">
-                <i class="fa-solid fa-chevron-down"></i> Details
-              </button>
-            </div>
-            <div class="emp-role-desc-panel" id="${descId}"><p>${r.description}</p></div>
-          </div>
-        </div>`;
-      }).join("");
-
-      return `<div class="emp-entry" style="flex:${c.colFlex} 0 0">
-        <div class="emp-entry-header">
-          <div class="emp-color-dot" style="background:${color}"></div>
-          <div class="emp-logo-wrap"><img src="${c.logo}" alt="${c.logoAlt}" /></div>
-          <div class="emp-entry-info">
-            <div class="emp-company-name">${c.name} ${badge}</div>
-            <div class="emp-duration"><i class="fa-regular fa-calendar"></i> ${c.duration}</div>
-          </div>
-        </div>
-        <div class="emp-tl-inner">${rolesHtml}</div>
-      </div>`;
-    }).join("");
-
-    const desktopHtml = `
-      <div class="emp-desktop-layout">
-        <div class="emp-single-card">
-          <div class="emp-bar-wrap">
-            <div class="emp-bar-track">${segmentsHtml}</div>
-            <div class="emp-bar-ticks">${ticksHtml}</div>
-          </div>
-          <div class="emp-entries">${desktopEntriesHtml}</div>
-        </div>
-      </div>`;
-
-    // ── MOBILE: vertical timeline ─────────────────────────────────────────
-    // Extract start year from duration string, e.g. "Jul 2013 - Sep 2024" → "2013"
-    function startYear(duration) {
-      const m = duration.match(/\b(20\d{2}|19\d{2})\b/);
-      return m ? m[1] : "";
-    }
-
-    const mobileItemsHtml = emp.companies.map((c, ci) => {
-      const color  = palette[ci % palette.length];
-      const badge  = c.isCurrent ? `<span class="emp-vtl-badge">Current</span>` : "";
-      const isLast = ci === emp.companies.length - 1;
-      const year   = startYear(c.duration);
-
-      const rolesHtml = c.roles.map((r, ri) => {
-        const descId = `emp-vtl-desc-${ci}-${ri}`;
-        return `<div class="emp-vtl-role">
-          <div class="emp-vtl-role-header">
-            <span class="emp-vtl-role-title" style="color:${color}">${r.title}</span>
-            <button class="emp-expand-btn" onclick="empToggle('${descId}',this)">
+        const descId = `emp-co-desc-${ci}-${ri}`;
+        return `
+        <div class="emp-co-role">
+          <div class="emp-co-role-header">
+            <span class="emp-co-role-title" style="color:${color}">${r.title}</span>
+            <button class="emp-co-expand" onclick="empToggle('${descId}',this)">
               <i class="fa-solid fa-chevron-down"></i> Details
             </button>
           </div>
-          <div class="emp-role-desc-panel" id="${descId}"><p>${r.description}</p></div>
+          <div class="emp-co-role-desc" id="${descId}"><p>${r.description}</p></div>
         </div>`;
       }).join("");
 
-      return `<div class="emp-vtl-item${isLast ? " emp-vtl-item-last" : ""}">
-        <div class="emp-vtl-year-col">
-          <span class="emp-vtl-year">${year}</span>
-        </div>
-        <div class="emp-vtl-connector">
-          <div class="emp-vtl-line-top" style="background:${color}"></div>
-          <div class="emp-vtl-node" style="background:${color};border-color:${color};box-shadow:0 0 0 3px ${color}33"></div>
-          <div class="emp-vtl-line-bot" style="background:${color}"></div>
-        </div>
-        <div class="emp-vtl-card" style="border-left-color:${color}">
-          <div class="emp-vtl-card-header">
-            <div class="emp-vtl-logo"><img src="${c.logo}" alt="${c.logoAlt}" /></div>
-            <div>
-              <div class="emp-vtl-company">${c.name} ${badge}</div>
-              <div class="emp-vtl-duration"><i class="fa-regular fa-calendar"></i> ${c.duration}</div>
+      return `
+      <div class="emp-co-card">
+        <div class="emp-co-header">
+          <div class="emp-co-logo"><img src="${c.logo}" alt="${c.logoAlt}" /></div>
+          <div class="emp-co-meta">
+            <div class="emp-co-name">${c.name} ${badge}</div>
+            <div class="emp-co-duration">
+              <i class="fa-regular fa-calendar"></i> ${c.duration}
             </div>
           </div>
-          <div class="emp-vtl-roles">${rolesHtml}</div>
+        </div>
+        <div class="emp-co-roles">${rolesHtml}</div>
+        <div class="emp-co-footer">
+          <div class="emp-co-footer-roles">
+            <i class="fa-solid fa-layer-group"></i>
+            ${c.roles.length} role${c.roles.length !== 1 ? "s" : ""}
+          </div>
+          <span style="font-size:0.72rem;color:var(--text-muted)">${c.duration}</span>
         </div>
       </div>`;
     }).join("");
 
-    const mobileHtml = `
-      <div class="emp-mobile-layout">
-        <div class="emp-vtl-wrap">${mobileItemsHtml}</div>
-      </div>`;
-
-    container.innerHTML = desktopHtml + mobileHtml;
+    container.className = "emp-cards-grid";
+    container.innerHTML = cardsHtml;
   }
 
   // ── Skills helpers ────────────────────────────────────────────────────────
@@ -535,34 +481,114 @@ function renderHero() {
 
   // ── Projects ──────────────────────────────────────────────────────────────
 
-  function buildProjectCard(p) {
-    const tagsHtml   = p.tags.map(t => `<span class="tag">${t}</span>`).join("");
-    const githubHtml = p.githubUrl
-      ? `<a href="${p.githubUrl}" class="github-link" target="_blank" title="View on GitHub">
-           <i class="fa-brands fa-github"></i>
-         </a>`
-      : "";
-    return `
-      <div class="project-card">
-        <div class="project-image">
-          <img src="${p.image}" alt="${p.title}" />
-        </div>
-        <div class="project-content">
-          <h3>${p.title}</h3>
-          <p>${p.description}</p>
-          <div class="project-tags">${tagsHtml}</div>
-          ${githubHtml}
-        </div>
-      </div>`;
+  function renderProjects() {
+  const projects = PORTFOLIO_DATA.projects;
+  const filtersEl = document.getElementById("prjFilters");
+  const gridEl    = document.getElementById("prjGrid");
+  const statsEl   = document.getElementById("prjStats");
+  if (!gridEl) return;
+
+  const INITIAL_SHOW = 6;
+  let activeFilter = "All";
+  let showingAll   = false;
+
+  // Gather unique categories
+  const cats = ["All", ...new Set(projects.map(p => p.category || "Other"))];
+
+  // Category icon map
+  const catIcons = {
+    "All":        "fa-solid fa-th-large",
+    "AI/ML":      "fa-solid fa-brain",
+    "Backend":    "fa-solid fa-server",
+    "Cloud/DevOps":"fa-solid fa-cloud",
+    "Enterprise": "fa-solid fa-building",
+    "Open Source":"fa-brands fa-github",
+    "Other":      "fa-solid fa-code"
+  };
+
+  // Build filter buttons
+  function buildFilters() {
+    filtersEl.innerHTML = cats.map(cat => {
+      const count = cat === "All" ? projects.length : projects.filter(p => (p.category || "Other") === cat).length;
+      const icon  = catIcons[cat] || "fa-solid fa-tag";
+      return `<button class="prj-filter-btn${cat === activeFilter ? " active" : ""}"
+        onclick="prjSetFilter('${cat}')">
+        <i class="${icon}"></i> ${cat}
+        
+      </button>`;
+    }).join("");
   }
 
-  function renderProjects() {
-    const track = document.getElementById("projectGrid");
-    if (!track) return;
-    const cardHtml = PORTFOLIO_DATA.projects.map(buildProjectCard).join("");
-    // Triplicate for seamless infinite feel on large screens
-    track.innerHTML = cardHtml + cardHtml + cardHtml;
+  // Build project cards
+  function buildGrid() {
+    const filtered = activeFilter === "All"
+      ? projects
+      : projects.filter(p => (p.category || "Other") === activeFilter);
+
+    if (!filtered.length) {
+      gridEl.innerHTML = `<div class="prj-empty"><i class="fa-solid fa-folder-open"></i>No projects in this category yet.</div>`;
+      return;
+    }
+
+    gridEl.innerHTML = filtered.map((p, i) => {
+      const featured  = i === 0 ? "prj-featured" : "";
+      const hidden    = (!showingAll && i >= INITIAL_SHOW) ? "prj-hidden" : "";
+      const cat       = p.category || "Other";
+      const icon      = catIcons[cat] || "fa-solid fa-tag";
+      const tagsHtml  = (p.tags || []).map(t => `<span class="prj-tag">${t}</span>`).join("");
+      const overlayTags = (p.tags || []).slice(0, 3).map(t => `<span class="prj-overlay-tag">${t}</span>`).join("");
+      const githubBtn = p.githubUrl
+        ? `<a href="${p.githubUrl}" class="prj-icon-btn has-link" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>`
+        : `<span class="prj-icon-btn"><i class="fa-solid fa-lock"></i> Private</span>`;
+
+      return `
+        <div class="prj-card ${hidden}" style="animation-delay:${(i % INITIAL_SHOW) * 0.06}s">
+          <div class="prj-cat-badge"><i class="${icon}"></i> ${cat}</div>
+          <div class="prj-card-img">
+            <img src="${p.image}" alt="${p.title}" loading="lazy" />
+            <div class="prj-img-overlay">${overlayTags}</div>
+          </div>
+          <div class="prj-card-body">
+            <div class="prj-card-title">${p.title}</div>
+            <p class="prj-card-desc">${p.description}</p>
+            <div class="prj-card-tags">${tagsHtml}</div>
+          </div>
+          <div class="prj-card-footer">
+            <div class="prj-card-links">${githubBtn}</div>
+            <span style="font-size:0.7rem;color:var(--text-light);font-weight:600;">${p.tags?.length || 0} technologies</span>
+          </div>
+        </div>`;
+    }).join("");
+
+    // Show/hide toggle button
+    const btn   = document.getElementById("prjToggleBtn");
+    const label = document.getElementById("prjToggleLabel");
+    const icon2 = document.getElementById("prjToggleIcon");
+    if (btn) {
+      btn.style.display = filtered.length <= INITIAL_SHOW ? "none" : "inline-flex";
+      if (label) label.textContent = showingAll ? "Show Fewer Projects" : "Show More Projects";
+      if (icon2) icon2.className = showingAll ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down";
+    }
   }
+
+
+  // Expose filter + toggle to global scope
+  window.prjSetFilter = function(cat) {
+    activeFilter = cat;
+    showingAll   = false;
+    buildFilters();
+    buildGrid();
+  };
+
+  window.prjToggleMore = function() {
+    showingAll = !showingAll;
+    buildGrid();
+    if (!showingAll) document.getElementById("projects").scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  buildFilters();
+  buildGrid();
+}
 
   // ── Contact ───────────────────────────────────────────────────────────────
 
@@ -824,13 +850,14 @@ function initContactForm() {
   async function sendDiscordNotification() {
     // Check if we've already sent a ping this session (prevents spam on refresh)
     if (sessionStorage.getItem('notified')) return;
-
+debugger;
     const payload = {
       username: "Portfolio Tracker",
       embeds: [{
         title: "New Portfolio Visit!",
         color: 3447003, // A nice blue color
-        fields: [
+        
+		fields: [
           { name: "Page Title", value: document.title, inline: true },
           { name: "URL", value: window.location.href, inline: true },
 		  { name: "Referrer", value: document.referrer, inline: true },
@@ -868,7 +895,7 @@ function initContactForm() {
     renderContact();
     initNavInteractions();
     initContactForm();
-	  sendDiscordNotification();
+	sendDiscordNotification();
   });
 
 })();
